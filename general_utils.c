@@ -25,10 +25,10 @@ int	ft_atoi(const char *str)
 	return ((int)(res * sign));
 }
 
-int ft_is_numeric(const char *str)
+int	ft_is_numeric(const char *str)
 {
-	int ret;
-	int i;
+	int	ret;
+	int	i;
 
 	ret = 0;
 	i = 0;
@@ -48,10 +48,10 @@ int ft_is_numeric(const char *str)
 	return (ret);
 }
 
-int *str_to_int_arrays(char **argv, int len)
+int	*str_to_int_arrays(char **argv, int len)
 {
-	int *stack_a;
-	int arg;
+	int	*stack_a;
+	int	arg;
 
 	stack_a = (int *)malloc(sizeof(int) * len);
 	arg = 0;
