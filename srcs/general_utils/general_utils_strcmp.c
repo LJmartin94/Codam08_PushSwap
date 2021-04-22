@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:28:41 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/22 20:28:42 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/04/22 20:30:34 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 
 int	are_strs_eq(const char *s1, const char *s2)
 {
-	int	equal;
-
 	if (ft_strcmp(s1, s2) != 0)
 		return (0);
 	else
