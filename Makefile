@@ -25,7 +25,10 @@ SRC_PUSH = $(PUSH_SWAP_PATH)push_swap_main.c \
 
 
 SRC_CHECK = $(CHECKER_PATH)checker_main.c \
-	$(CHECKER_PATH)checker_utils.c \
+	$(CHECKER_PATH)commands_pa-pb.c \
+	$(CHECKER_PATH)commands_rr-ra-rb.c \
+	$(CHECKER_PATH)commands_rrr-rra-rrb.c \
+	$(CHECKER_PATH)commands_ss-sa-sb.c \
 
 
 SRC_GENERAL = $(UTILS_PATH)general_utils_atoi.c \
