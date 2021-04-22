@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:15:12 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/22 21:10:20 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/04/22 21:19:09 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct	s_stack
 {
 	int *stack;
+	int	swap;
 	int	total_len;
 	int	head;
 	int a_len;
