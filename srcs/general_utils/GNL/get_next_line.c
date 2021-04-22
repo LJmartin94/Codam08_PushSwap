@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: limartin <limartin@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 21:37:34 by limartin          #+#    #+#             */
-/*   Updated: 2020/01/11 17:22:18 by limartin         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   get_next_line.c                                    :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: limartin <limartin@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/12/09 21:37:34 by limartin      #+#    #+#                 */
+/*   Updated: 2021/04/22 20:21:16 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_error(char *remainder, char **line)
+int	ft_error(char *remainder, char **line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < (BUFFER_SIZE + 1))
@@ -46,7 +46,7 @@ void	ft_clear_remainder(char *remainder, int j)
 	}
 }
 
-int		ft_handle_remainder(char **line, char *rmn, int *i, int *nl)
+int	ft_handle_remainder(char **line, char *rmn, int *i, int *nl)
 {
 	int	j;
 
@@ -64,7 +64,7 @@ int		ft_handle_remainder(char **line, char *rmn, int *i, int *nl)
 	return (1);
 }
 
-int		ft_fill_remainder(char *remainder, int fd, int *nl)
+int	ft_fill_remainder(char *remainder, int fd, int *nl)
 {
 	int		red;
 
@@ -74,7 +74,7 @@ int		ft_fill_remainder(char *remainder, int fd, int *nl)
 	return (red);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	remainder[BUFFER_SIZE + 1];
 	int			i;

@@ -10,7 +10,7 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;
 	int				res;
@@ -32,17 +32,17 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (res);
 }
 
-int		ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int n;
+	int	n;
 
 	n = ft_strlen(s1);
-	return(ft_strncmp(s1, s2, n));
+	return (ft_strncmp(s1, s2, n));
 }
 
-int		are_strs_eq(const char *s1, const char *s2)
+int	are_strs_eq(const char *s1, const char *s2)
 {
-	int equal;
+	int	equal;
 
 	if (ft_strcmp(s1, s2) != 0)
 		return (0);

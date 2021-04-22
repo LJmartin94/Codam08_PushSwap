@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   general.h                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/04/22 20:15:32 by lindsay       #+#    #+#                 */
+/*   Updated: 2021/04/22 20:17:43 by lindsay       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef GENERAL_H
 # define GENERAL_H
 
-#include <stddef.h>
+# include <stddef.h>
 
 int		*str_to_int_arrays(char **argv, int len);
 int		ft_is_numeric(const char *str);

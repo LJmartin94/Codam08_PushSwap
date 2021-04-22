@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: limartin <limartin@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/08 19:03:23 by limartin          #+#    #+#             */
-/*   Updated: 2020/01/11 17:28:37 by limartin         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   get_next_line_utils.c                              :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: limartin <limartin@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/12/08 19:03:23 by limartin      #+#    #+#                 */
+/*   Updated: 2021/04/22 20:20:34 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_malloc_expander(char **str, int size, int grow)
+int	ft_malloc_expander(char **str, int size, int grow)
 {
 	int		i;
 	char	*cpy;
