@@ -25,6 +25,7 @@ SRC_PUSH = $(PUSH_SWAP_PATH)push_swap_main.c \
 
 
 SRC_CHECK = $(CHECKER_PATH)checker_main.c \
+	$(CHECKER_PATH)checker_stack_manager.c \
 	$(CHECKER_PATH)commands_pa-pb.c \
 	$(CHECKER_PATH)commands_rr-ra-rb.c \
 	$(CHECKER_PATH)commands_rrr-rra-rrb.c \

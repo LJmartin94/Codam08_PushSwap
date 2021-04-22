@@ -6,19 +6,18 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/22 20:27:53 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/04/22 21:09:08 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 #include <stdio.h>
 
-typedef int	(*t_instruction)(int **, int*);
+typedef int	(*t_instruction)(t_stack *);
 
-int	specific_function(int **stack, int *b_head)
+int	specific_function(t_stack *stk)
 {
-	(void)stack;
-	(void)b_head;
+	(void)stk;
 	printf("This shit actually works?!\n");
 	return (0);
 }
@@ -31,14 +30,12 @@ t_instruction	get_instruction(char *line)
 
 int	main(int argc, char **argv)
 {
-	int				*stack_a;
-	int				b_head;
 	int				run;
+	t_stack			stk;
 	char			*line;
 	t_instruction	instruction;
 
-	stack_a = str_to_int_arrays(argv, (argc - 1));
-	b_head = 0;
+	init_stack(argc, argv, &stk);
 	run = 1;
 	while (run)
 	{
@@ -46,7 +43,7 @@ int	main(int argc, char **argv)
 		if (line[0] == '\0')
 			break ;
 		instruction = get_instruction(line);
-		instruction(&stack_a, &b_head);
+		instruction(&stk);
 	}
 	return (0);
 }
