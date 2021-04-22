@@ -25,7 +25,7 @@ SRC_PUSH = $(PUSH_SWAP_PATH)push_swap_main.c \
 
 
 SRC_CHECK = $(CHECKER_PATH)checker_main.c \
-	checker_utils.c \
+	$(CHECKER_PATH)checker_utils.c \
 
 
 SRC_GENERAL = $(UTILS_PATH)general_utils_atoi.c \
@@ -48,7 +48,7 @@ $(NAME): $(OBJ_PUSH) $(OBJ_GENERAL)
 	@echo "Push_swap compiled"
 
 $(NAME_CHECKER): $(OBJ_CHECK) $(OBJ_GENERAL)
-	@$(CC) -o $(NAME) $(OBJ_CHECK) $(OBJ_GENERAL) $(CFLAGS)
+	@$(CC) -o $(NAME_CHECKER) $(OBJ_CHECK) $(OBJ_GENERAL) $(CFLAGS)
 	@echo "Checker compiled"
 
 %.o: %.c
@@ -60,12 +60,12 @@ bonus:
 
 clean:
 	@rm -f $(OBJ_PUSH) $(OBJ_CHECK) $(OBJ_GENERAL) 
-	@echo "Push_swap object files cleaned"
+	@echo $(NAME) "&" $(NAME_CHECKER) "object files cleaned"
 
 fclean: clean
 	@rm -f $(NAME) $(NAME_CHECKER)
-	@echo "Push_swap fully cleaned"
+	@echo $(NAME) "&" $(NAME_CHECKER) "fully cleaned"
 
-re: fclean all
+re: fclean all $(NAME_CHECKER)
 
 .PHONY: all bonus clean fclean re
