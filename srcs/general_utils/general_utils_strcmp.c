@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:28:41 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/22 20:30:34 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/04/25 16:36:07 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 	int	n;
 
 	n = ft_strlen(s1);
-	return (ft_strncmp(s1, s2, n));
+	return (ft_strncmp(s1, s2, n + 1));
 }
 
 int	are_strs_eq(const char *s1, const char *s2)
