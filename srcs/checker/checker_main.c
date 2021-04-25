@@ -6,14 +6,14 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/22 21:09:08 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/04/25 17:00:47 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 #include <stdio.h>
 
-typedef int	(*t_instruction)(t_stack *);
+typedef int (*t_instruction)(t_stack *);
 
 int	specific_function(t_stack *stk)
 {
@@ -22,10 +22,36 @@ int	specific_function(t_stack *stk)
 	return (0);
 }
 
+int	error_function(t_stack *stk)
+{
+	(void)stk;
+	printf("Command not recognised\n");
+	return (0);
+}
+
 t_instruction	get_instruction(char *line)
 {
-	(void)line;
-	return (specific_function);
+	static t_switch_obj const	s[] = {
+		{(char *) "pa", specific_function}, {(char *) "pb", specific_function},
+		{(char *) "ra", specific_function}, {(char *) "rb", specific_function},
+		{(char *) "rr", specific_function}, {(char *) "ss", specific_function},
+		{(char *) "sa", specific_function}, {(char *) "sb", specific_function},
+		{(char *) "rra", specific_function},
+		{(char *) "rrb", specific_function},
+		{(char *) "rrr", specific_function}
+	};
+	t_instruction				result;
+	int							i;
+
+	result = error_function;
+	i = 0;
+	while (i < (int)(sizeof(s) / sizeof(t_switch_obj)))
+	{
+		if (are_strs_eq(line, s[i].condition))
+			return ((s[i]).res);
+		i++;
+	}
+	return (result);
 }
 
 int	main(int argc, char **argv)
