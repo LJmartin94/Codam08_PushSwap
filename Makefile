@@ -28,6 +28,7 @@ SRC_CHECK = $(CHECKER_PATH)checker_main.c \
 	$(CHECKER_PATH)checker_stack_manager.c \
 	$(CHECKER_PATH)checker_stack_manager_indices.c \
 	$(CHECKER_PATH)checker_visualiser.c \
+	$(CHECKER_PATH)checker_visualiser2.c \
 	$(CHECKER_PATH)checker_validator.c \
 	$(CHECKER_PATH)commands_pa-pb.c \
 	$(CHECKER_PATH)commands_rr-ra-rb.c \

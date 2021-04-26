@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 18:09:54 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 19:39:16 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int argc, char **argv)
 			break ;
 		instruction = get_instruction(line);
 		instruction(&stk);
-		visualise_stacks(&stk);
+		visualise_stacks2(&stk);
 		free (line);
 	}
 	validate_stacks(&stk);
@@ -77,5 +77,5 @@ int	main(int argc, char **argv)
 ** Error management
 ** Protect malloc fails
 ** Free everything malloc'd
-** Normify the string visualiser
+** Make visualiser and visualiser2 work with -v and -v2
 */
