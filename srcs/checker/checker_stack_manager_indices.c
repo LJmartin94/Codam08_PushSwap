@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:58:38 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 14:44:42 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 16:51:53 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	valid_a(int i, t_stack *stk)
 		return (0);
 }
 
-int valid_b(int i, t_stack *stk)
+int	valid_b(int i, t_stack *stk)
 {
 	if (b(i, stk) < stk->head && b(i, stk) >= 0)
 		return (1);

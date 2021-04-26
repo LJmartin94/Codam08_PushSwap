@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/26 12:40:22 by limartin      #+#    #+#                 */
-/*   Updated: 2021/04/26 13:31:14 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 16:49:13 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static	size_t	ft_intlen(long int num)
 	return (len);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	long int	num;
 	size_t		len;

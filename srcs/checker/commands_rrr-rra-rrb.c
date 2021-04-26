@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:28:08 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 15:53:04 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 16:49:45 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	rra(t_stack *stk)
 {
-	int i;
-	int last;
+	int	i;
+	int	last;
 
 	if (valid_a(0, stk) && valid_a(1, stk))
 	{
@@ -34,8 +34,8 @@ int	rra(t_stack *stk)
 
 int	rrb(t_stack *stk)
 {
-	int i;
-	int last;
+	int	i;
+	int	last;
 
 	if (valid_b(0, stk) && valid_b(1, stk))
 	{

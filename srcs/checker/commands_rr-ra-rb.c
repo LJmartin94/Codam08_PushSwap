@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:28:03 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 15:27:45 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 16:50:05 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ra(t_stack *stk)
 {
-	int i;
+	int	i;
 
 	if (valid_a(0, stk) && valid_a(1, stk))
 	{
@@ -32,7 +32,7 @@ int	ra(t_stack *stk)
 
 int	rb(t_stack *stk)
 {
-	int i;
+	int	i;
 
 	if (valid_b(0, stk) && valid_b(1, stk))
 	{
