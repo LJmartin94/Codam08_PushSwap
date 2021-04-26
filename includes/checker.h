@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:15:12 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 16:46:37 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 18:00:28 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,7 @@ int				rrb(t_stack *stk);
 int				rrr(t_stack *stk);
 
 int				visualise_stacks(t_stack *stk);
+
+int				validate_stacks(t_stack *stk);
 
 #endif
