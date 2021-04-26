@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/26 12:57:44 by limartin      #+#    #+#                 */
-/*   Updated: 2021/04/26 14:03:19 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 14:16:48 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	visualise_stacks(t_stack *stk)
 	i = 0;
 	while (i < stk->total_len)
 	{
-		if (a(i, stk) >= stk->head && a(i, stk) < (stk->head + stk->a_len))
+		if (valid_a(i, stk))
 		{
 			write(1, str_ary[a(i, stk)], ft_strlen(str_ary[a(i, stk)]));
 			write(1, "            ", 12 - ft_strlen(str_ary[a(i, stk)]));
@@ -30,7 +30,7 @@ int	visualise_stacks(t_stack *stk)
 		else
 			write(1, "            ", 12);
 		write(1, " | ", 3);
-		if (b(i, stk) < stk->head && b(i, stk) >= 0)
+		if (valid_b(i, stk))
 		{
 			write(1, str_ary[b(i, stk)], ft_strlen(str_ary[b(i, stk)]));
 			write(1, "            ", 12 - ft_strlen(str_ary[b(i, stk)]));
