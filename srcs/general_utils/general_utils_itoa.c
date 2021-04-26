@@ -6,9 +6,11 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/26 12:40:22 by limartin      #+#    #+#                 */
-/*   Updated: 2021/04/26 12:56:41 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 13:31:14 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "general.h"
 
 static	size_t	ft_intlen(long int num)
 {
@@ -35,8 +37,8 @@ char			*ft_itoa(int n)
 	num = n;
 	len = ft_intlen(num);
 	res = (char *)malloc(sizeof(char) * (len + 1));
-	if (res == 0)
-		return (0);
+	if (res == NULL)
+		return (NULL);
 	i = 0;
 	if (n < 0)
 	{
@@ -59,7 +61,7 @@ char	**int_array_to_strs(int *array, int len)
 	char	**stack_a;
 	int		arg;
 
-	stack_a = (char **)malloc(sizeof(char *) * (len + 1))
+	stack_a = (char **)malloc(sizeof(char *) * (len + 1));
 	if (stack_a == NULL)
 		return (NULL);
 	stack_a[len] = NULL;
@@ -67,6 +69,7 @@ char	**int_array_to_strs(int *array, int len)
 	while (arg < len)
 	{
 		stack_a[arg] = ft_itoa(array[arg]);
+		arg++;
 	}
 	return (stack_a);
 }
