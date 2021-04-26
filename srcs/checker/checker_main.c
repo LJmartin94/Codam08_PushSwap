@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 15:24:26 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 15:45:51 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,9 @@ t_instruction	get_instruction(char *line)
 {
 	static t_switch_obj const	s[] = {
 		{(char *) "pa", pa}, {(char *) "pb", pb},
-		{(char *) "ra", ra}, {(char *) "rb", rb},
-		{(char *) "rr", rr}, {(char *) "ss", ss},
-		{(char *) "sa", sa}, {(char *) "sb", sb},
-		{(char *) "rra", specific_function},
-		{(char *) "rrb", specific_function},
-		{(char *) "rrr", specific_function}
+		{(char *) "ra", ra}, {(char *) "rb", rb}, {(char *) "rr", rr},
+		{(char *) "sa", sa}, {(char *) "sb", sb}, {(char *) "ss", ss},
+		{(char *) "rra", rra}, {(char *) "rrb", rrb}, {(char *) "rrr", rrr}
 	};
 	t_instruction				result;
 	int							i;
