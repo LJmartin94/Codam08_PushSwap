@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 12:47:30 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 13:08:05 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	main(int argc, char **argv)
 			break ;
 		instruction = get_instruction(line);
 		instruction(&stk);
+		visualise_stacks(&stk);
 	}
 	return (0);
 }
