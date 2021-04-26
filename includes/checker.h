@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:15:12 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 15:44:22 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 16:38:34 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <unistd.h>
 # include "general.h"
+
+# define NRM  "\x1B[0m"
+# define RED  "\x1B[31m"
+# define GRN  "\x1B[32m"
 
 typedef struct s_stack
 {

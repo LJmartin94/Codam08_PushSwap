@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 15:45:51 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 16:00:59 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int	main(int argc, char **argv)
 		instruction = get_instruction(line);
 		instruction(&stk);
 		visualise_stacks(&stk);
+		free (line);
 	}
 	return (0);
 }
@@ -74,7 +75,6 @@ int	main(int argc, char **argv)
 ** TO DO:
 ** Error management
 ** Protect malloc fails
-** Perform operations on int array
 ** Validate sequence is sorted
 ** Convert ints back to str
 ** Visualise strings
