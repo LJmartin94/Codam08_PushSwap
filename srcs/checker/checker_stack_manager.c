@@ -6,19 +6,19 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:58:38 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/22 21:12:09 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/04/26 12:27:08 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int a(int index, t_stack *stack)
+int	a(int index, t_stack *stack)
 {
 	index = index - stack->head;
 	return (index);
 }
 
-int b(int index, t_stack *stack)
+int	b(int index, t_stack *stack)
 {
 	index = stack->head - 1 - index;
 	return (index);

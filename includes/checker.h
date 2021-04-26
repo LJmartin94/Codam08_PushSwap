@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:15:12 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/22 21:19:09 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/04/26 12:28:29 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,19 @@
 
 # include "general.h"
 
-typedef struct	s_stack
+typedef struct s_stack
 {
-	int *stack;
+	int	*stack;
 	int	swap;
 	int	total_len;
 	int	head;
-	int a_len;
+	int	a_len;
 	int	b_len;
-} t_stack;
+}	t_stack;
 
 int	init_stack(int argc, char **argv, t_stack *stack);
 int	recalculate_head(t_stack *stack, int head);
-int a(int index, t_stack *stack);
-int b(int index, t_stack *stack);
-
+int	a(int index, t_stack *stack);
+int	b(int index, t_stack *stack);
 
 #endif

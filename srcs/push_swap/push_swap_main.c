@@ -6,11 +6,11 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:28:48 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/22 20:29:01 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/04/26 12:25:21 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(void)
+int	main(void)
 {
 	return (0);
 }
