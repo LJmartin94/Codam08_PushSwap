@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/26 17:35:40 by limartin      #+#    #+#                 */
-/*   Updated: 2021/04/26 18:12:14 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 19:20:47 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ static int	reject(void)
 
 int	validate_stacks(t_stack *stk)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (stk->b_len == 0)
 	{
-		while(i < stk->total_len - 1)
+		while (i < stk->total_len - 1)
 		{
 			if (stk->stack[i] > stk->stack[i + 1])
 				return (reject());
