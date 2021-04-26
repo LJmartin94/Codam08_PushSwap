@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:58:38 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 14:14:52 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 14:44:42 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	a(int index, t_stack *stack)
 {
-	index = index - stack->head;
+	index = index + stack->head;
 	return (index);
 }
 
