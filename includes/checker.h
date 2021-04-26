@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:15:12 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 15:02:57 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 15:24:53 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ int	pb(t_stack *stk);
 int	sa(t_stack *stk);
 int	sb(t_stack *stk);
 int	ss(t_stack *stk);
+int	ra(t_stack *stk);
+int	rb(t_stack *stk);
+int	rr(t_stack *stk);
 
 int	visualise_stacks(t_stack *stk);
 
