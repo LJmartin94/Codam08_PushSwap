@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:15:32 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/25 16:56:10 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/04/26 13:27:10 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 # define GENERAL_H
 
 # include <stddef.h>
+# include <stdlib.h>
 # include "switch_case.h"
 
 int		*str_to_int_arrays(char **argv, int len);
 int		ft_is_numeric(const char *str);
 int		ft_atoi(const char *str);
+
+char	**int_array_to_strs(int *array, int len);
+char	*ft_itoa(int n);
 
 int		get_next_line(int fd, char **line);
 

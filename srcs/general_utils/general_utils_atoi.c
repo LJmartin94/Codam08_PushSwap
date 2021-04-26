@@ -6,11 +6,11 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:28:30 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 12:45:24 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 13:27:25 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "general.h"
 
 int	ft_atoi(const char *str)
 {

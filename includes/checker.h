@@ -6,13 +6,14 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:15:12 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 12:28:29 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 13:23:33 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 
+# include <unistd.h>
 # include "general.h"
 
 typedef struct s_stack
@@ -29,5 +30,7 @@ int	init_stack(int argc, char **argv, t_stack *stack);
 int	recalculate_head(t_stack *stack, int head);
 int	a(int index, t_stack *stack);
 int	b(int index, t_stack *stack);
+
+int	visualise_stacks(t_stack *stk);
 
 #endif
