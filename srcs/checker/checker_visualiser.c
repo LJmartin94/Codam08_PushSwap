@@ -6,11 +6,36 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/26 12:57:44 by limartin      #+#    #+#                 */
-/*   Updated: 2021/04/26 16:38:15 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 19:11:39 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+static int	set_colour(int range_check, int i_grt, int i_les, t_stack *stk)
+{
+	if (range_check && stk->stack[i_grt] < stk->stack[i_les])
+		write (1, RED, ft_strlen(RED));
+	else
+		write (1, GRN, ft_strlen(GRN));
+	return (0);
+}
+
+static int	write_num(int range_check, int index, char **strs)
+{
+	int		len;
+	char	*num;
+
+	len = 0;
+	if (range_check)
+	{
+		num = strs[index];
+		len = ft_strlen(num);
+		write(1, num, len);
+	}
+	write(1, "            ", 12 - len);
+	return (len);
+}
 
 int	visualise_stacks(t_stack *stk)
 {
@@ -22,28 +47,12 @@ int	visualise_stacks(t_stack *stk)
 	i = 0;
 	while (i < stk->total_len)
 	{
-		if (valid_a(i, stk))
-		{
-			if (valid_a(i + 1, stk) && stk->stack[a(i + 1, stk)] < stk->stack[a(i, stk)])
-				write (1, RED, ft_strlen(RED));
-			else
-				write (1, GRN, ft_strlen(GRN));
-			write(1, str_ary[a(i, stk)], ft_strlen(str_ary[a(i, stk)]));
-			write(1, "            ", 12 - ft_strlen(str_ary[a(i, stk)]));
-		}
-		else
-			write(1, "            ", 12);
+		set_colour(valid_a(i + 1, stk), a(i + 1, stk), a(i, stk), stk);
+		write_num(valid_a(i, stk), a(i, stk), str_ary);
 		write (1, NRM, ft_strlen(NRM));
 		write(1, " | ", 3);
-		if (valid_b(i, stk))
-		{
-			if (valid_b(i + 1, stk) && stk->stack[b(i + 1, stk)] > stk->stack[b(i, stk)])
-				write (1, RED, ft_strlen(RED));
-			else
-				write (1, GRN, ft_strlen(GRN));
-			write(1, str_ary[b(i, stk)], ft_strlen(str_ary[b(i, stk)]));
-			write(1, "            ", 12 - ft_strlen(str_ary[b(i, stk)]));
-		}
+		set_colour(valid_b(i + 1, stk), b(i, stk), b(i + 1, stk), stk);
+		write_num(valid_b(i, stk), b(i, stk), str_ary);
 		write (1, NRM, ft_strlen(NRM));
 		write(1, "\n", 1);
 		i++;
