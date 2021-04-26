@@ -6,14 +6,12 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 13:08:05 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/26 14:36:38 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 #include <stdio.h>
-
-typedef int (*t_instruction)(t_stack *);
 
 int	specific_function(t_stack *stk)
 {
@@ -32,7 +30,7 @@ int	error_function(t_stack *stk)
 t_instruction	get_instruction(char *line)
 {
 	static t_switch_obj const	s[] = {
-		{(char *) "pa", specific_function}, {(char *) "pb", specific_function},
+		{(char *) "pa", pa}, {(char *) "pb", pb},
 		{(char *) "ra", specific_function}, {(char *) "rb", specific_function},
 		{(char *) "rr", specific_function}, {(char *) "ss", specific_function},
 		{(char *) "sa", specific_function}, {(char *) "sb", specific_function},
