@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:28:30 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/22 20:28:32 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/04/26 12:45:24 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	*str_to_int_arrays(char **argv, int len)
 	int	arg;
 
 	stack_a = (int *)malloc(sizeof(int) * len);
+	if (stack_a == NULL)
+		return (NULL);
 	arg = 0;
 	while (arg < len)
 	{
