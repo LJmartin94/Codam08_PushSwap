@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/25 17:00:47 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/04/26 12:47:30 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,13 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+
+/*
+** TO DO:
+** Error management
+** Protect malloc fails
+** Perform operations on int array
+** Validate sequence is sorted
+** Convert ints back to str
+** Visualise strings
+*/
