@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/27 15:48:46 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/27 18:52:03 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ int	main(int argc, char **argv)
 {
 	char			**arg_strings;
 	t_stack			stk;
-	int				vis;
 	char			*line;
 	t_instruction	instruction;
 
-	argument_error_checker(&arg_strings, argv, &argc, &vis);
+	stk.vis = 0;
+	argument_error_checker(&arg_strings, argv, &argc, &stk);
 	init_stack(argc, arg_strings, &stk);
 	while (get_next_line(1, &line))
 	{
@@ -65,9 +65,9 @@ int	main(int argc, char **argv)
 			break ;
 		instruction = get_instruction(line);
 		instruction(&stk);
-		if (vis == 1)
+		if (stk.vis == 1)
 			visualise_stacks(&stk);
-		else if (vis == 2)
+		else if (stk.vis == 2)
 			visualise_stacks2(&stk);
 		free (line);
 	}

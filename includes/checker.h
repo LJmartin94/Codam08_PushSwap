@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:15:12 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/27 15:48:17 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/27 18:52:29 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_stack
 	int	head;
 	int	a_len;
 	int	b_len;
+	int vis;
 }	t_stack;
 
 typedef int (*t_instruction)(t_stack *);
@@ -59,6 +60,6 @@ int				visualise_stacks2(t_stack *stk);
 
 int				validate_stacks(t_stack *stk);
 
-int				argument_error_checker(char ***args, char **argv, int *argc, int *vis);
+int				argument_error_checker(char ***args, char **argv, int *argc, t_stack *stk);
 
 #endif

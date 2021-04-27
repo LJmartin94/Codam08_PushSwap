@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/27 13:44:47 by limartin      #+#    #+#                 */
-/*   Updated: 2021/04/27 15:47:47 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/27 18:51:11 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,12 @@ int error(void)
 	return (1);
 }
 
-int	argument_error_checker(char ***args, char **argv, int *argc, int *vis)
+int	argument_error_checker(char ***args, char **argv, int *argc, t_stack *stk)
 {
 	int i;
 	int j;
 
 	*args = (char **)malloc(sizeof(char *) * (*argc));
-	(*vis) = 0;
 	i = 1;
 	j = 0;
 	while (i < (*argc))
@@ -46,9 +45,9 @@ int	argument_error_checker(char ***args, char **argv, int *argc, int *vis)
 			j++;
 		}	
 		else if (are_strs_eq("-v", argv[i]))
-			(*vis) = 1;
+			stk->vis = 1;
 		else if (are_strs_eq("-v2", argv[i]))
-			(*vis) = 2;
+			stk->vis = 2;
 		else
 			return (error());
 		i++;
