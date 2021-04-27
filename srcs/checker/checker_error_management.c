@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/27 13:44:47 by limartin      #+#    #+#                 */
-/*   Updated: 2021/04/27 18:51:11 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/27 19:12:49 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,18 @@ int error(void)
 	return (1);
 }
 
-int	argument_error_checker(char ***args, char **argv, int *argc, t_stack *stk)
+int	sanitise_input_string(char **argv, int *argc, t_stack *stk)
 {
 	int i;
 	int j;
 
-	*args = (char **)malloc(sizeof(char *) * (*argc));
 	i = 1;
 	j = 0;
 	while (i < (*argc))
 	{
 		if (ft_is_numeric(argv[i]))
 		{
-			(*args)[j] = argv[i];
+			argv[j] = argv[i];
 			j++;
 		}	
 		else if (are_strs_eq("-v", argv[i]))
@@ -53,10 +52,11 @@ int	argument_error_checker(char ***args, char **argv, int *argc, t_stack *stk)
 		i++;
 	}
 	(*argc) = j;
-	while (j < i)
-	{
-		(*args)[j] = NULL;
-		j++;
-	}
+	return (j);
+}
+
+int	argument_error_checker(char **argv, int *argc, t_stack *stk)
+{
+	sanitise_input_string(argv, argc, stk);
 	return (0);
 }

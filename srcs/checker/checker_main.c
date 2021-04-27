@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/27 18:59:43 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/27 19:14:26 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,13 @@ t_instruction	get_instruction(char *line)
 
 int	main(int argc, char **argv)
 {
-	char			**arg_strings;
 	t_stack			stk;
 	char			*line;
 	t_instruction	instruction;
 
 	stk.vis = 0;
-	argument_error_checker(&arg_strings, argv, &argc, &stk);
-	init_stack(argc, arg_strings, &stk);
+	argument_error_checker(argv, &argc, &stk);
+	init_stack(argc, argv, &stk);
 	visualise_stack_if_requested(&stk);
 	while (get_next_line(1, &line))
 	{
@@ -76,7 +75,7 @@ int	main(int argc, char **argv)
 /*
 ** TO DO:
 ** Error management
-** Make visualiser and visualiser2 work with -v and -v2
+** Maybe we can overwrite argv instead of using arg_strings? -> Trying this now
 ** Protect malloc fails
 ** Free everything malloc'd
 */

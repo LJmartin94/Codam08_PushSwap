@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:15:12 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/27 18:59:22 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/27 19:15:40 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ int				visualise_stacks2(t_stack *stk);
 
 int				validate_stacks(t_stack *stk);
 
-int				argument_error_checker(char ***args, char **argv, int *argc, t_stack *stk);
+int				argument_error_checker(char **argv, int *argc, t_stack *stk);
 
 #endif
