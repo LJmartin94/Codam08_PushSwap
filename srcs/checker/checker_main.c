@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 19:39:16 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/27 15:48:46 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,24 @@ t_instruction	get_instruction(char *line)
 
 int	main(int argc, char **argv)
 {
-	int				run;
+	char			**arg_strings;
 	t_stack			stk;
+	int				vis;
 	char			*line;
 	t_instruction	instruction;
 
-	init_stack(argc, argv, &stk);
-	run = 1;
-	while (run)
+	argument_error_checker(&arg_strings, argv, &argc, &vis);
+	init_stack(argc, arg_strings, &stk);
+	while (get_next_line(1, &line))
 	{
-		run = get_next_line(1, &line);
 		if (line[0] == '\0')
 			break ;
 		instruction = get_instruction(line);
 		instruction(&stk);
-		visualise_stacks2(&stk);
+		if (vis == 1)
+			visualise_stacks(&stk);
+		else if (vis == 2)
+			visualise_stacks2(&stk);
 		free (line);
 	}
 	validate_stacks(&stk);
@@ -75,7 +78,7 @@ int	main(int argc, char **argv)
 /*
 ** TO DO:
 ** Error management
+** Make visualiser and visualiser2 work with -v and -v2
 ** Protect malloc fails
 ** Free everything malloc'd
-** Make visualiser and visualiser2 work with -v and -v2
 */
