@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:28:30 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/26 13:27:25 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/27 18:29:14 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_is_numeric(const char *str)
 	return (ret);
 }
 
-int	*str_to_int_arrays(char **argv, int len)
+int	*str_to_int_arrays(char **strs, int len)
 {
 	int	*stack_a;
 	int	arg;
@@ -71,8 +71,8 @@ int	*str_to_int_arrays(char **argv, int len)
 	arg = 0;
 	while (arg < len)
 	{
-		if (ft_is_numeric(argv[arg + 1]))
-			stack_a[arg] = ft_atoi(argv[arg + 1]);
+		if (ft_is_numeric(strs[arg]))
+			stack_a[arg] = ft_atoi(strs[arg]);
 		else
 		{
 			free(stack_a);
