@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/26 12:57:44 by limartin      #+#    #+#                 */
-/*   Updated: 2021/04/26 19:11:39 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/27 19:00:35 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,14 @@ int	visualise_stacks(t_stack *stk)
 		write(1, "\n", 1);
 		i++;
 	}
+	return (0);
+}
+
+int	visualise_stack_if_requested(t_stack *stk)
+{
+	if (stk->vis == 1)
+		return (visualise_stacks(stk));
+	else if (stk->vis == 2)
+		return (visualise_stacks2(stk));
 	return (0);
 }
