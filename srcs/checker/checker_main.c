@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/27 19:14:26 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/28 16:01:23 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	main(int argc, char **argv)
 	stk.vis = 0;
 	argument_error_checker(argv, &argc, &stk);
 	init_stack(argc, argv, &stk);
+	if (stk.stack == NULL)
+		return (error_function(&stk));
 	visualise_stack_if_requested(&stk);
 	while (get_next_line(1, &line))
 	{
