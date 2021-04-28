@@ -6,23 +6,41 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:28:30 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/27 18:29:14 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/28 16:20:28 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "general.h"
 
-int	ft_atoi(const char *str)
+static void *free_and_null(int *stack_a)
+{
+	free(stack_a);
+	return (NULL);
+}
+
+int check_for_overflow(int num, char *str)
+{
+	if (num > 0 || num < -1)
+		return (0);
+	else if (num == 0 && !(are_strs_eq("0", str)))
+		return (1);
+	else if (num == -1 && !(are_strs_eq("-1", str)))
+		return (1);
+	else
+		return(0);
+}
+
+int	mod_ft_atoi(const char *str)
 {
 	int			i;
-	long int	sign;
-	long int	res;
+	int	sign;
+	int	res;
 
 	i = 0;
 	sign = 1;
 	res = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
-		i++;
+	if (are_strs_eq(str, "-2147483648"))
+		return (-2147483648);
 	if ((str[i] == '-') || (str[i] == '+'))
 		i++;
 	if ((i > 0) && (str[i - 1] == '-'))
@@ -72,12 +90,11 @@ int	*str_to_int_arrays(char **strs, int len)
 	while (arg < len)
 	{
 		if (ft_is_numeric(strs[arg]))
-			stack_a[arg] = ft_atoi(strs[arg]);
-		else
-		{
-			free(stack_a);
-			return (NULL);
-		}
+			stack_a[arg] = mod_ft_atoi(strs[arg]);
+		else 
+			return (free_and_null(stack_a));
+		if (check_for_overflow(stack_a[arg], strs[arg]))
+			return (free_and_null(stack_a));
 		arg++;
 	}
 	return (stack_a);
