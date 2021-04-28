@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/27 13:44:47 by limartin      #+#    #+#                 */
-/*   Updated: 2021/04/27 19:12:49 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/28 16:34:09 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 /*
 ** Throws errors if:
 ** Args are not integers
+** No args (or only options)
+** Allow for options -v and -v2
 ** Args are larger than int MAX or less than int MIN
+**
 ** -0 or +Num aren't valid number formats
 ** Duplicate args?!
 ** Bad instruction
-** Allow for options -v and -v2
 */
 
 int error(void)
@@ -42,7 +44,7 @@ int	sanitise_input_string(char **argv, int *argc, t_stack *stk)
 		{
 			argv[j] = argv[i];
 			j++;
-		}	
+		}
 		else if (are_strs_eq("-v", argv[i]))
 			stk->vis = 1;
 		else if (are_strs_eq("-v2", argv[i]))
@@ -58,5 +60,7 @@ int	sanitise_input_string(char **argv, int *argc, t_stack *stk)
 int	argument_error_checker(char **argv, int *argc, t_stack *stk)
 {
 	sanitise_input_string(argv, argc, stk);
+	if ((*argc) == 0)
+		return (error());
 	return (0);
 }
