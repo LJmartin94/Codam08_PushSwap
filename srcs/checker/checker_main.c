@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/28 16:01:23 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/28 17:47:32 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ int	main(int argc, char **argv)
 /*
 ** TO DO:
 ** Error management
-** Maybe we can overwrite argv instead of using arg_strings? -> Trying this now
 ** Protect malloc fails
 ** Free everything malloc'd
 */

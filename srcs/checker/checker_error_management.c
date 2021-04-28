@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/27 13:44:47 by limartin      #+#    #+#                 */
-/*   Updated: 2021/04/28 16:34:09 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/28 16:43:32 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 ** No args (or only options)
 ** Allow for options -v and -v2
 ** Args are larger than int MAX or less than int MIN
-**
 ** -0 or +Num aren't valid number formats
+**
 ** Duplicate args?!
 ** Bad instruction
 */
