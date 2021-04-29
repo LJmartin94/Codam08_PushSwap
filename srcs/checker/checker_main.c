@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/29 20:36:10 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/29 22:21:40 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,16 @@ int	error_function(t_stack *stk)
 
 int A_greater_than_B(void *A, void *B)
 {
-	if (A > B)
-		return (1);
-	else
-		return (0);
+	int swap;
+
+	if (*((int *)A) > *((int *)B))
+	{
+		swap = *((int *)A);
+		printf("swap: %d\n", swap);
+		A = (int)B;
+		B = swap;
+	}
+	return (0);
 }
 
 t_instruction	get_instruction(char *line)
@@ -63,12 +69,13 @@ int	main(int argc, char **argv)
 	char			*line;
 	t_instruction	instruction;
 
+	//char *test = "A test string";
 	stk.vis = 0;
 	argument_error_checker(argv, &argc, &stk);
 	init_stack(argc, argv, &stk);
 	if (stk.stack == NULL)
 		return (error_function(&stk));
-	merge_sort(stk.stack, &A_greater_than_B);
+	merge_sort(&(stk.stack), sizeof(int), &A_greater_than_B);
 	visualise_stack_if_requested(&stk);
 	while (get_next_line(1, &line))
 	{
