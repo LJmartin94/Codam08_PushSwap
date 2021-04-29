@@ -40,6 +40,7 @@ SRC_CHECK = $(CHECKER_PATH)checker_main.c \
 SRC_GENERAL = $(UTILS_PATH)general_utils_atoi.c \
 	$(UTILS_PATH)general_utils_itoa.c \
 	$(UTILS_PATH)general_utils_strcmp.c \
+	$(UTILS_PATH)general_utils_merge_sort.c \
 	$(GNL_PATH)get_next_line.c \
 	$(GNL_PATH)get_next_line_utils.c \
 

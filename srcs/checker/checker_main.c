@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/28 17:47:32 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/29 20:36:10 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@ int	error_function(t_stack *stk)
 	(void)stk;
 	printf("Command not recognised\n");
 	return (0);
+}
+
+int A_greater_than_B(void *A, void *B)
+{
+	if (A > B)
+		return (1);
+	else
+		return (0);
 }
 
 t_instruction	get_instruction(char *line)
@@ -60,6 +68,7 @@ int	main(int argc, char **argv)
 	init_stack(argc, argv, &stk);
 	if (stk.stack == NULL)
 		return (error_function(&stk));
+	merge_sort(stk.stack, &A_greater_than_B);
 	visualise_stack_if_requested(&stk);
 	while (get_next_line(1, &line))
 	{
