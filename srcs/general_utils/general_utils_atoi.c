@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:28:30 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/28 16:20:28 by limartin      ########   odam.nl         */
+/*   Updated: 2021/04/29 18:58:38 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void *free_and_null(int *stack_a)
 	return (NULL);
 }
 
-int check_for_overflow(int num, char *str)
+static int check_for_overflow(int num, char *str)
 {
 	if (num > 0 || num < -1)
 		return (0);
