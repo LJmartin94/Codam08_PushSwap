@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/29 18:54:23 by limartin      #+#    #+#                 */
-/*   Updated: 2021/05/02 20:06:09 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/05/02 21:18:14 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int		ms_merge(t_sort *d, int first, int mid, int last)
 {
-	int store[mid + 1];
+	int *store;
 	int i;
 	int l;
 	int r;
@@ -28,36 +28,9 @@ int		ms_merge(t_sort *d, int first, int mid, int last)
 	i = first;
 	l = first;
 	r = mid + 1;
-	printf("Comparing indexes: %d - %d - %d\n", first, mid, last);
-	// for (int j = 0; j < d->items; j++)
-	// {
-	// 	//printf("j: %d\n", j);
-	// 	int *array;
-	// 	array = *((int **)(d->to_sort));
-	// 	printf("%d ", array[(d->ans)[j]]);
-	// }
-	// printf("\n");
+	store = (int *)malloc(sizeof(int) * (mid + 1));
 	
-	// while (i < last)
-	// {
-	// 	if (d->f(d, &(d->ans[l]), &(d->ans[r])) == l)
-	// 	{
-	// 		if ((r - (mid + 1)) > l)
-	// 			d->ans[i] = store[(r - (mid + 1) - l)];
-	// 		else
-	// 			d->ans[i] = d->ans[l];
-	// 		l++;
-	// 		i++;
-	// 	} 
-	// 	else
-	// 	{
-	// 		if ((r - (mid + 1)) >= l)
-	// 			store[(r - (mid + 1) - l)] = d->ans[l];
-	// 		d->ans[i] = d->ans[r];
-	// 		r++;
-	// 		i++;
-	// 	}
-	// }
+	printf("Comparing indexes: %d - %d - %d\n", first, mid, last);
 	
 	for (int j = 0; j < d->items; j++)
 	{
@@ -72,6 +45,43 @@ int		ms_merge(t_sort *d, int first, int mid, int last)
 			printf(NRM);
 	}
 	printf("\n");
+	
+	while (i <= last && r <= last)
+	{
+		//printf("r = %d, mid = %d, l = %d, r_relative = %d, i = %d, last = %d\n", r, mid, l, (r - (mid + 1) - l), i, last);
+		if (d->f(d, &(d->ans[l]), &(d->ans[r])) == l)
+		{
+	// 		if ((r - (mid + 1)) > l)
+	// 			d->ans[i] = store[(r - (mid + 1) - l)];
+	// 		else
+				d->ans[i] = d->ans[l];
+			l++;
+			i++;
+		} 
+		else
+		{
+			// if ((r - (mid + 1)) >= l)
+			// 	store[(r - (mid + 1) - l)] = (d->ans)[l];
+			d->ans[i] = d->ans[r];
+			r++;
+			i++;
+		}
+	}
+
+	for (int j = 0; j < d->items; j++)
+	{
+		int *array;
+		array = *((int **)(d->to_sort));
+		if (j == first)
+			printf(GRN);
+		if (j == mid + 1)
+			printf(ORNG);
+		printf("%d ", array[(d->ans)[j]]);
+		if (j == last)
+			printf(NRM);
+	}
+	printf("\n");
+
 	return (0);
 }
 
