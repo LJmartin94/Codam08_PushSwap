@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/05/02 16:35:37 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/05/02 19:10:38 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,28 @@ int	error_function(t_stack *stk)
 	return (0);
 }
 
-int A_greater_than_B(void *A, void *B)
+int A_greater_than_B(t_sort *d, void *A, void *B)
 {
-	int swap;
+	int a;
+	int b;
+	int *array;
+	
+	array = (int *)(d->to_sort);
+	a = *(int *)A;
+	b = *(int *)B;
+	printf("a: %d / b: %d\n", a, b);
+	printf("val a: %d\nval b: %d", array[a], array[b]);
 
-	(void)A;
-	(void)B;
-	(void)swap;
-	// if (*((int *)A) > *((int *)B))
-	// {
-	// 	swap = *((int *)A);
-	// 	printf("swap: %d\n", swap);
-	// 	A = (int)B;
-	// 	B = swap;
-	// }
-	return (0);
+	if (array[a] > array[b])
+	{
+		printf(" (b)\n");
+		return(b);
+	}
+	else
+	{
+		printf(" (a)\n");
+		return(a);
+	}
 }
 
 t_instruction	get_instruction(char *line)
