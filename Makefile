@@ -17,8 +17,8 @@ INCL_PATH = ./includes
 CC = gcc
 
 #TODO remove sanitise flag when submitting
-#CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -fsanitize=address -g
+#CFLAGS = -Wall -Wextra -Werror
 
 
 #Source files
