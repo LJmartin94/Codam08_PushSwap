@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/27 13:44:47 by limartin      #+#    #+#                 */
-/*   Updated: 2021/04/28 16:43:32 by limartin      ########   odam.nl         */
+/*   Updated: 2021/05/02 16:36:59 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@
 
 int error(void)
 {
-	write(1, "Error, init?\n", 13);
+	int ret;
+
+	ret = write(1, "Error, init?\n", 13);
 	exit(1);
-	return (1);
+	return (ret);
 }
 
 int	sanitise_input_string(char **argv, int *argc, t_stack *stk)
