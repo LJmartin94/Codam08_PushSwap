@@ -17,8 +17,9 @@ INCL_PATH = ./includes
 CC = gcc
 
 #TODO remove sanitise flag when submitting
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
-# CFLAGS = -Wall -Wextra -Werror
+#CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS = -Wall -Wextra
+
 
 #Source files
 SRC_PUSH = $(PUSH_SWAP_PATH)push_swap_main.c \
