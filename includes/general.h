@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:15:32 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/04/29 21:41:58 by limartin      ########   odam.nl         */
+/*   Updated: 2021/05/02 16:08:49 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
 
-void 	*merge_sort(void *to_sort, int mem_size, int (*f)(void *, void *));
+void 	*merge_sort(void *to_sort, int size, int len, int (*f)(void *, void *));
 
 #endif
