@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/29 18:54:23 by limartin      #+#    #+#                 */
-/*   Updated: 2021/05/03 20:57:05 by limartin      ########   odam.nl         */
+/*   Updated: 2021/05/03 21:16:25 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,36 @@ static int	swap_ints(int *a, int *b)
 	swap = *a;
 	*a = *b;
 	*b = swap;
+	return (0);
+}
+
+ops_ms_merge(t_sort *d, int i, int mid, int last)
+{
+	int *patch;
+	int p_len;
+	int j;
+
+	mid++;
+	patch = (int *)malloc(sizeof(int) * (mid));
+	p_len = 0;
+	p_index = 0;
+	while (i <= last && mid <= last && i <= mid)
+	{
+		if (d->f(d, &(d->ans[i]), &(d->ans[mid])) == d->ans[i])
+			i++;
+		else
+		{
+			swap_ints(&(d->ans[i]), &(d->ans[mid]));
+			j = mid;
+			mid++;
+			i++;
+			while (j > i)
+			{
+				swap_ints(&(d->ans[j - 1]), &(d->ans[j]));
+				j--;
+			}
+		}
+	}
 	return (0);
 }
 
