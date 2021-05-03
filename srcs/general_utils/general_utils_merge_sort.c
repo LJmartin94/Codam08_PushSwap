@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/29 18:54:23 by limartin      #+#    #+#                 */
-/*   Updated: 2021/05/03 18:08:21 by limartin      ########   odam.nl         */
+/*   Updated: 2021/05/03 20:14:05 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,83 @@ int		mem_ms_merge(t_sort *d, int i, int mid, int last)
 	return (0);
 }
 
+int		mem2_ms_merge(t_sort *d, int first, int mid, int last)
+{
+	int i;
+	int j;
+	int l;
+	int r;
+	int l_head_set;
+
+	i = first;
+	l = first;
+	r = mid + 1;
+	l_head_set = 1;
+
+	printf("l: %d, r: %d, i: %d\n", l, r, i);
+	printf("Begin: ");
+	debug_print(d, first, mid, last);
+	while (i <= mid + 1 && r <= last && l <= r)
+	{
+		if (d->f(d, &(d->ans[l]), &(d->ans[r])) == d->ans[l])
+		{
+			printf("l: %d, r: %d, i: %d\n", l, r, i);
+			printf("Swapped L: ");
+			debug_print(d, first, mid, last);
+			swap_ints(&(d->ans[i]), &(d->ans[l]));
+			i++;
+			if (l_head_set)
+				l++;
+		}
+		else
+		{
+			l_head_set = 0;
+			swap_ints(&(d->ans[i]), &(d->ans[r]));
+			printf("l: %d, r: %d, i: %d\n", l, r, i);
+			printf("Swapped R: ");
+			debug_print(d, first, mid, last);
+			j = r;
+			l = r;
+			if (r + 1 <= last)
+				r++;
+			i++;
+			while (j > mid + 1)
+			{
+				swap_ints(&(d->ans[j - 1]), &(d->ans[j]));
+				printf("l: %d, r: %d, i: %d j: %d\n", l, r, i, j);
+				printf("Inside loop: ");
+				debug_print(d, first, mid, last);
+				j--;
+			}
+		}
+	}
+	printf("Pre-flip: ");
+	debug_print(d, first, mid, last);
+	//unflip end:
+	i = mid + 1;
+	l = last;
+	// printf("l: %d, r: %d, i: %d\n", l, r, i);
+	while (l > i)
+	{
+		// printf("l: %d, r: %d, i: %d\n", l, r, i);
+		// printf("Flipping loop: ");
+		debug_print(d, first, mid, last);
+		swap_ints(&(d->ans[i]), &(d->ans[l]));
+		i++;
+		l--;
+	}
+
+
+
+
+
+	printf("l: %d, r: %d, i: %d\n", l, r, i);
+	printf("End: ");
+	debug_print(d, first, mid, last);
+	printf("\n");
+	return (0);
+}
+
 int		ms_split(t_sort *d, void *to_sort, int first, int last)
 {
 	int mid;
@@ -82,7 +159,7 @@ int		ms_split(t_sort *d, void *to_sort, int first, int last)
 		ms_split(d, to_sort, mid + 1, last);
 	}
 	if (first != last)
-		mem_ms_merge(d, first, mid, last);
+		mem2_ms_merge(d, first, mid, last);
 	return (0);
 }
 
