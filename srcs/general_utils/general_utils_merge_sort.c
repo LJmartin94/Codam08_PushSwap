@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/29 18:54:23 by limartin      #+#    #+#                 */
-/*   Updated: 2021/05/03 20:14:05 by limartin      ########   odam.nl         */
+/*   Updated: 2021/05/03 20:47:48 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,14 +87,14 @@ int		mem2_ms_merge(t_sort *d, int first, int mid, int last)
 	printf("l: %d, r: %d, i: %d\n", l, r, i);
 	printf("Begin: ");
 	debug_print(d, first, mid, last);
-	while (i <= mid + 1 && r <= last && l <= r)
+	while (i < mid + 1 && r <= last && l <= r)
 	{
 		if (d->f(d, &(d->ans[l]), &(d->ans[r])) == d->ans[l])
 		{
 			printf("l: %d, r: %d, i: %d\n", l, r, i);
+			swap_ints(&(d->ans[i]), &(d->ans[l]));
 			printf("Swapped L: ");
 			debug_print(d, first, mid, last);
-			swap_ints(&(d->ans[i]), &(d->ans[l]));
 			i++;
 			if (l_head_set)
 				l++;
@@ -127,7 +127,7 @@ int		mem2_ms_merge(t_sort *d, int first, int mid, int last)
 	i = mid + 1;
 	l = last;
 	// printf("l: %d, r: %d, i: %d\n", l, r, i);
-	while (l > i)
+	while (l > i && !(l_head_set))
 	{
 		// printf("l: %d, r: %d, i: %d\n", l, r, i);
 		// printf("Flipping loop: ");
