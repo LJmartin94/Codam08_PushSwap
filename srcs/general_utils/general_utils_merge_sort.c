@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/29 18:54:23 by limartin      #+#    #+#                 */
-/*   Updated: 2021/05/03 16:28:13 by limartin      ########   odam.nl         */
+/*   Updated: 2021/05/03 18:08:21 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,57 +36,38 @@ static int debug_print(t_sort *d, int first, int mid, int last)
 	return (0);
 }
 
-int		ms_merge(t_sort *d, int first, int mid, int last)
+static int	swap_ints(int *a, int *b)
 {
-	int *new;
-	int i;
-	int l;
-	int r;
 	int swap;
+
+	swap = *a;
+	*a = *b;
+	*b = swap;
+	return (0);
+}
+
+int		mem_ms_merge(t_sort *d, int i, int mid, int last)
+{
 	int j;
 
-	i = first;
-	l = first;
-	r = mid + 1;
-
-	// new = (int *)malloc(sizeof(int) * (d->items));
-
-
-	printf("Comparing indexes: %d - %d - %d\n", first, mid, last);
-	debug_print(d, first, mid, last);
-
-	while (i <= last && r <= last && l <= r)
+	mid++;
+	while (i <= last && mid <= last && i <= mid)
 	{
-		// if (d->f(d, &(d->ans[l]), &(d->ans[r])) == l)
-		if (d->f(d, &(d->ans[l]), &(d->ans[r])) == d->ans[l])
-		{
+		if (d->f(d, &(d->ans[i]), &(d->ans[mid])) == d->ans[i])
 			i++;
-		}
 		else
 		{
-			swap = d->ans[i];
-			d->ans[i] = d->ans[r];
-			d->ans[r] = swap;
-			j = r;
-			r++;
+			swap_ints(&(d->ans[i]), &(d->ans[mid]));
+			j = mid;
+			mid++;
 			i++;
 			while (j > i)
 			{
-				swap = d->ans[j - 1];
-				d->ans[j - 1] = d->ans[j];
-				d->ans[j] = swap;
+				swap_ints(&(d->ans[j - 1]), &(d->ans[j]));
 				j--;
-				printf ("Inside loop: ");
-				debug_print(d, first, mid, last);
-				printf ("\n");
 			}
 		}
-		l = i;
 	}
-	
-	
-	debug_print(d, first, mid, last);
-
 	return (0);
 }
 
@@ -101,7 +82,7 @@ int		ms_split(t_sort *d, void *to_sort, int first, int last)
 		ms_split(d, to_sort, mid + 1, last);
 	}
 	if (first != last)
-		ms_merge(d, first, mid, last);
+		mem_ms_merge(d, first, mid, last);
 	return (0);
 }
 
@@ -130,9 +111,11 @@ void 	*merge_sort(void *to_sort, int size, int len, int (*f)(t_sort *, void *, v
 	}
 	printf("\n");
 
-	// f(((unsigned char)to_sort + 0 * mem), ((unsigned char)to_sort + 1 * mem));
 	return (to_sort);
 }
+
+	// printf("Comparing indexes: %d - %d - %d\n", first, mid, last);
+	// debug_print(d, first, mid, last);
 
 
 	// while (i <= last && r <= last && l <= mid)
