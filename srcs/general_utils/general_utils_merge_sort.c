@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/29 18:54:23 by limartin      #+#    #+#                 */
-/*   Updated: 2021/05/10 17:43:00 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/05/10 18:17:30 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,14 @@ ops_ms_merge(t_sort *d, int first, int mid, int last)
 			i++;
 		}
 	}
+	printf("DEBUG: p_inx: %d, p_len: %d, i: %d, r: %d\n", p_index, p_len, i, r);
+	while (p_index < p_len && i < r)
+	{
+		d->ans[i] = patch[p_index];
+		p_index++;
+		i++;
+	}
+	debug_print(d, first, mid, last);
 	return (0);
 }
 
