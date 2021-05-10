@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/29 18:54:23 by limartin      #+#    #+#                 */
-/*   Updated: 2021/05/03 21:16:25 by limartin      ########   odam.nl         */
+/*   Updated: 2021/05/10 17:43:00 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,31 +46,45 @@ static int	swap_ints(int *a, int *b)
 	return (0);
 }
 
-ops_ms_merge(t_sort *d, int i, int mid, int last)
+ops_ms_merge(t_sort *d, int first, int mid, int last)
 {
 	int *patch;
 	int p_len;
-	int j;
+	int p_index;
+	int i;
+	int r;
 
+	i = first;
 	mid++;
+	r = mid;
 	patch = (int *)malloc(sizeof(int) * (mid));
 	p_len = 0;
 	p_index = 0;
-	while (i <= last && mid <= last && i <= mid)
+	while (i < r && r <= last)
 	{
-		if (d->f(d, &(d->ans[i]), &(d->ans[mid])) == d->ans[i])
+		if (p_len == 0 && (d->f(d, &(d->ans[i]), &(d->ans[r])) == d->ans[i]))
 			i++;
+		else if (p_len > 0 && d->f(d, &(patch[p_index]), &(d->ans[r])) == patch[p_index])
+		{
+			if (p_len < mid)
+			{
+				patch[p_len] = d->ans[i];
+				p_len++;
+			}
+			d->ans[i] = patch[p_index];
+			p_index++;
+			i++;
+		}
 		else
 		{
-			swap_ints(&(d->ans[i]), &(d->ans[mid]));
-			j = mid;
-			mid++;
-			i++;
-			while (j > i)
+			if (p_len < mid)
 			{
-				swap_ints(&(d->ans[j - 1]), &(d->ans[j]));
-				j--;
+				patch[p_len] = d->ans[i];
+				p_len++;
 			}
+			d->ans[i] = d->ans[r];
+			r++;
+			i++;
 		}
 	}
 	return (0);
@@ -112,7 +126,7 @@ int		ms_split(t_sort *d, void *to_sort, int first, int last)
 		ms_split(d, to_sort, mid + 1, last);
 	}
 	if (first != last)
-		mem_ms_merge(d, first, mid, last);
+		ops_ms_merge(d, first, mid, last);
 	return (0);
 }
 
