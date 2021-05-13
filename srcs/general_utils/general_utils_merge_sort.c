@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/29 18:54:23 by limartin      #+#    #+#                 */
-/*   Updated: 2021/05/10 18:17:30 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/05/14 01:18:26 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,38 @@ int		ms_split(t_sort *d, void *to_sort, int first, int last)
 		ms_split(d, to_sort, mid + 1, last);
 	}
 	if (first != last)
-		ops_ms_merge(d, first, mid, last);
+		mem_ms_merge(d, first, mid, last);
+	return (0);
+}
+
+int		ms_unlock(t_sort *d, int *key, void *to_sort)
+{
+	int *array;
+	int val_store;
+	int i;
+	int k;
+
+	array = *((int **)(d->to_sort));
+	i = 0;
+	while (i == key[i])
+		i++;
+	k = i;
+	val_store = array[k];
+	while (key[i] != k)
+	{
+		array[i] = array[key[i]];
+		i = key[i];
+	}
+	array[i] = val_store;
+	
+	i = 0;
+	printf("Array: \n");
+	while (i < d->items)
+	{
+		printf("%d ", array[i]);
+		i++;
+	}
+	printf("\n");
 	return (0);
 }
 
@@ -155,7 +186,9 @@ void 	*merge_sort(void *to_sort, int size, int len, int (*f)(t_sort *, void *, v
 		i++;
 	}
 	ms_split(&data, to_sort, 0, len - 1);
+	ms_unlock(&data, data.ans, to_sort);
 	i = 0;
+	printf("Key: \n");
 	while (i < len)
 	{
 		printf("%d ", data.ans[i]);
