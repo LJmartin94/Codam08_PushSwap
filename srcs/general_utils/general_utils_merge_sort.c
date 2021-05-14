@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/29 18:54:23 by limartin      #+#    #+#                 */
-/*   Updated: 2021/05/14 01:18:26 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/05/14 03:03:59 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	swap_ints(int *a, int *b)
 	return (0);
 }
 
-ops_ms_merge(t_sort *d, int first, int mid, int last)
+static int ops_ms_merge(t_sort *d, int first, int mid, int last)
 {
 	int *patch;
 	int p_len;
@@ -138,34 +138,80 @@ int		ms_split(t_sort *d, void *to_sort, int first, int last)
 	return (0);
 }
 
+int		mv_dat(int size, void *dest, void *src)
+{
+	unsigned char d[size];
+	unsigned char s[size];
+	int byte;
+
+	printf("BEGIN src(int): %p src(u_char): %p\n", (int *)src, (unsigned char *)src);
+	printf("BEGIN dest: %d src: %d\n", *(int *)dest, *(int *)src);
+	byte = 0;
+	while (byte < 1)
+	{
+		d[0] = *((unsigned char **)dest);
+		s[0] = *((unsigned char **)src);
+		byte++;
+	}
+	// byte = 0;
+	// while (byte < size)
+	// {
+	// 	d[byte] = ((unsigned char *)dest)[byte];
+	// 	s[byte] = ((unsigned char *)src)[byte];
+	// 	byte++;
+	// }
+	byte = 0;
+	while (byte < size)
+	{
+		d[byte] = s[byte];
+		byte++;
+	}
+	*((unsigned char **)dest) = d[0];
+	*((unsigned char **)src) = s[0];
+	printf("d: %d s: %d\n", *(int *)d, *(int *)s);
+	printf("END dest: %d src: %d\n", *(int *)dest, *(int *)src);
+	printf("END src(int): %p src(u_char): %p\n", (int *)src, (unsigned char *)src);
+	return(0);
+}
+
 int		ms_unlock(t_sort *d, int *key, void *to_sort)
 {
 	int *array;
-	int val_store;
+	int *val_store;
+	// unsigned char *u_array;
+	// unsigned char *val_store;
 	int i;
 	int k;
 
 	array = *((int **)(d->to_sort));
+	// u_array = *((unsigned char **)(d->to_sort));
 	i = 0;
 	while (i == key[i])
 		i++;
 	k = i;
-	val_store = array[k];
+	// val_store = array[k];
+	mv_dat(d->size, &(val_store), &(array[k]));
+	//mv_dat(d->size, val_store, (u_array + (k * d->size)));
 	while (key[i] != k)
 	{
-		array[i] = array[key[i]];
+		// array[i] = array[key[i]];
+		mv_dat(d->size, &(array[i]), &(array[key[i]]));
+		// mv_dat(d->size, (u_array + (i * d->size)), (u_array + (key[i] * d->size)));
 		i = key[i];
 	}
-	array[i] = val_store;
-	
+	// array[i] = val_store;
+	mv_dat(d->size, &(array[i]), &(val_store));
+	//mv_dat(d->size, (u_array + (i * d->size)), val_store);
+
 	i = 0;
-	printf("Array: \n");
-	while (i < d->items)
-	{
-		printf("%d ", array[i]);
-		i++;
-	}
-	printf("\n");
+	// printf("Array: \n");
+	// while (i < d->items)
+	// {
+	// 	// printf("%d ", array[i]);
+	// 	printf("%d ", u_array[i * d->size]);
+	// 	i++;
+	// }
+	// printf("\n");
 	return (0);
 }
 
