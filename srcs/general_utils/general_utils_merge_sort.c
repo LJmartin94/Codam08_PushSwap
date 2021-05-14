@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/29 18:54:23 by limartin      #+#    #+#                 */
-/*   Updated: 2021/05/14 15:07:53 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/05/14 15:33:59 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,14 +212,5 @@ void 	*merge_sort(void *to_sort, int size, int len, int (*f)(t_sort *, void *, v
 	}
 	ms_split(&data, to_sort, 0, len - 1);
 	ms_unlock(data.size, data.items, data.ans, to_sort);
-	i = 0;
-	printf("Key: \n");
-	while (i < len)
-	{
-		printf("%d ", data.ans[i]);
-		i++;
-	}
-	printf("\n");
-
 	return (to_sort);
 }

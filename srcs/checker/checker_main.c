@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/22 20:27:51 by lindsay       #+#    #+#                 */
-/*   Updated: 2021/05/10 17:44:51 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/05/14 15:49:46 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,10 @@ int A_greater_than_B(t_sort *d, void *A, void *B)
 	array = *((int **)(d->to_sort));
 	a = *(int *)A;
 	b = *(int *)B;
-	// printf("a: %d / b: %d\n", a, b);
-	// printf("val a: %d\nval b: %d", array[a], array[b]);
-
 	if (array[a] > array[b])
-	{
-		// printf(" (b)\n");
 		return(b);
-	}
 	else
-	{
-		// printf(" (a)\n");
 		return(a);
-	}
 }
 
 t_instruction	get_instruction(char *line)
