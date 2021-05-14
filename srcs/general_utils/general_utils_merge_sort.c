@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/29 18:54:23 by limartin      #+#    #+#                 */
-/*   Updated: 2021/05/14 13:57:35 by lindsay       ########   odam.nl         */
+/*   Updated: 2021/05/14 15:07:53 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,25 +162,35 @@ int		mv_dat(int size, void *d_addr, void *s_addr)
 	return(0);
 }
 
-int		ms_unlock(int size, int *key, void *to_sort)
+int		ms_unlock(int size, int items, int *key, void *to_sort)
 {
 	unsigned char *u_array;
-	unsigned char *val_store;
+	unsigned char val_store[size];
 	int i;
+	int j;
 	int k;
 
 	u_array = *((unsigned char **)(to_sort));
-	i = 0;
-	while (i == key[i])
-		i++;
-	k = i;
-	mv_dat(size, &(val_store), (u_array + (k * size)));
-	while (key[i] != k)
+	k = 0;
+	while (k < items - 1)
 	{
-		mv_dat(size, (u_array + (i * size)), (u_array + (key[i] * size)));
-		i = key[i];
+		i = 0;
+		while (i < items && (i == key[i] || key[i] == -1))
+			i++;
+		k = i;
+		if (k >= items)
+			break;
+		mv_dat(size, &(val_store), (u_array + (k * size)));
+		while (key[i] != k && key[i] != -1)
+		{
+			mv_dat(size, (u_array + (i * size)), (u_array + (key[i] * size)));
+			j = i;
+			i = key[i];
+			key[j] = -1;
+		}
+		mv_dat(size, (u_array + (i * size)), &(val_store));
+		key[i] = -1;
 	}
-	mv_dat(size, (u_array + (i * size)), &(val_store));
 	return (0);
 }
 
@@ -201,7 +211,7 @@ void 	*merge_sort(void *to_sort, int size, int len, int (*f)(t_sort *, void *, v
 		i++;
 	}
 	ms_split(&data, to_sort, 0, len - 1);
-	ms_unlock(data.size, data.ans, to_sort);
+	ms_unlock(data.size, data.items, data.ans, to_sort);
 	i = 0;
 	printf("Key: \n");
 	while (i < len)
