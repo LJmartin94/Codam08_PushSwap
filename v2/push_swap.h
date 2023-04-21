@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/21 21:47:02 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/21 21:53:53 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@ typedef struct s_data
 	int	*input;
 	int	num_of_args;
 }	t_data;
+
+// The type of struct we use to represent our stack_a and stack_b
+// AND
+// The type of struct we use to store our instruction list in
+typedef struct s_link
+{
+	int				content;
+	struct s_link	*next;
+	struct s_link	*previous;
+}	t_link;
 
 //utils.c
 int		ft_strlen(const char *str);
