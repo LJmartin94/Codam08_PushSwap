@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:52 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/21 21:28:56 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/21 21:35:10 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,6 @@ int	ft_strlen(const char *str)
 	while (str[i] != '\0')
 		i++;
 	return (i);
-}
-
-/* Returns 'type' of character
-3 == sign
-2 == numeric
-1 == separator
-0 == invalid
-(enums would be nicer, but also longer so not norme) */
-int	get_type(char c)
-{
-	if (c == '-' || c == '+')
-		return (3);
-	if (c >= '0' && c <= '9')
-		return (2);
-	if (c == ' ' || c == '\0')
-		return (1);
-	return (0);
 }
 
 /* I like separating the output from the input with a newline, 
