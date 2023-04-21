@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:41:04 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/21 19:41:05 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/21 19:59:49 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(int argc, char **argv)
 	t_data d;
 
 	d.input = NULL;
+	d.num_of_args = 0;
 	parsing(&d, argc, argv);
 
 

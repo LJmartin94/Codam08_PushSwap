@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:52 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/21 19:46:45 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/21 21:28:56 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_strlen(const char *str)
 1 == separator
 0 == invalid
 (enums would be nicer, but also longer so not norme) */
-int	get_valid_type(char c)
+int	get_type(char c)
 {
 	if (c == '-' || c == '+')
 		return (3);
@@ -50,8 +50,7 @@ void	exit_with_message(char *msg, int error)
 }
 
 /* This is like a standard atoi but if it encounters an integer overflow error 
-it exits the program with an error message.
-It also does not accept leading spaces. */
+it exits the program with an error message. */
 int	ft_modified_atoi(char *str)
 {
 	int			i;
@@ -61,6 +60,8 @@ int	ft_modified_atoi(char *str)
 	i = 0;
 	sign = 1;
 	res = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
+		i++;
 	if ((str[i] == '-') || (str[i] == '+'))
 		i++;
 	if ((i > 0) && (str[i - 1] == '-'))
