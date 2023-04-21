@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/22 01:09:44 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/22 01:28:25 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/22 01:42:56 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	print_list(t_link *to_print)
 {
-	t_link *tmp;
+	t_link	*tmp;
+
 	tmp = to_print;
 	while (tmp)
 	{

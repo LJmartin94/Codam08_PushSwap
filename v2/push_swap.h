@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/22 01:11:13 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/22 01:43:52 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ typedef struct s_link
 //data struct -> anything that is malloc'd and needs to be freed goes in here.
 typedef struct s_data
 {
-	int	*input;
-	int	num_of_args;
-	t_link *stack_a;
-	t_link *stack_b;
-	t_link *solution_a;
+	int		*input;
+	int		num_of_args;
+	t_link	*stack_a;
+	t_link	*stack_b;
+	t_link	*solution_a;
 }	t_data;
 
 //utils.c
@@ -54,6 +54,7 @@ void	exit_with_message(t_data *d, char *msg, int error);
 
 //debug.c -> functions and includes to be removed before handing in.
 # include <stdio.h>
+
 void	print_list(t_link *to_print);
 
 #endif
