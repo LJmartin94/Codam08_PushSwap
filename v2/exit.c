@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 21:38:00 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/21 21:42:01 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/21 21:51:55 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	exit_with_message(t_data *d, char *msg, int error)
 {
 	free_all(d);
 	write(1, "\n", 1);
+	(void)msg;
 	if (error)
-		write(1, msg, ft_strlen(msg));
+		write(1, "Error\n", ft_strlen("Error\n"));
 	exit(error);
 }
