@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/21 21:29:02 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/21 21:36:15 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_data
 int		ft_strlen(const char *str);
 void	exit_with_message(char *msg, int error);
 int		ft_modified_atoi(char *str);
-int		get_type(char c);
 
 //parsing.c
 void	parsing(t_data *d, int argc, char **argv);
