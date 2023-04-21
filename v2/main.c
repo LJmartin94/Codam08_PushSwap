@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:41:04 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/21 21:32:57 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/21 23:29:40 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,20 @@
 int	main(int argc, char **argv)
 {
 	t_data	d;
+	int		i;
 
 	d.input = NULL;
 	d.num_of_args = 0;
+	d.stack_a = NULL;
+	d.stack_b = NULL;
+	d.solution_a = NULL;
 	parsing(&d, argc, argv);
-	for (int i = 0; i < d.num_of_args; i++)
-		printf("%d ", d.input[i]);
+	i = 0;
+	while (i < d.num_of_args)
+	{
+		d.stack_a = add_to_back(d.stack_a, new_node(&d, d.input[i]));
+		i++;
+	}
+	printf("List length: %d\n", size_of_list(d.stack_a));
 	return (0);
 }
