@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:41:00 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/21 21:35:16 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/21 21:47:47 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	parse_input_as_string(t_data *d, char *input)
 	{
 		if ((get_type(input[i]) == 3 && get_type(input[i + 1]) != 2) \
 			|| get_type(input[i]) == 0)
-			exit_with_message("Invalid input\n", 1);
+			exit_with_message(d, "Invalid input\n", 1);
 		else if (get_type(input[i]) == 2 && get_type(input[i + 1]) == 1)
 			d->num_of_args++;
 		i++;
@@ -49,7 +49,7 @@ void	parse_input_as_string(t_data *d, char *input)
 	j = 0;
 	while (i < d->num_of_args)
 	{
-		d->input[i] = ft_modified_atoi(&(input[j]));
+		d->input[i] = ft_modified_atoi(d, &(input[j]));
 		while (get_type(input[j]) == 2)
 			j++;
 		while (get_type(input[j]) == 1)
@@ -71,9 +71,9 @@ void	parse_input_as_array(t_data *d, char **argv)
 		{
 			if (get_type(argv[1 + i][j]) == 3 \
 				&& (get_type(argv[1 + i][j + 1]) != 2))
-				exit_with_message("Invalid signs in input\n", 1);
+				exit_with_message(d, "Invalid signs in input\n", 1);
 			else if (get_type(argv[1 + i][j]) == 0)
-				exit_with_message("Invalid input\n", 1);
+				exit_with_message(d, "Invalid input\n", 1);
 			j++;
 		}
 		i++;
@@ -82,7 +82,7 @@ void	parse_input_as_array(t_data *d, char **argv)
 	i = 0;
 	while (i < d->num_of_args)
 	{
-		d->input[i] = ft_modified_atoi(argv[1 + i]);
+		d->input[i] = ft_modified_atoi(d, argv[1 + i]);
 		i++;
 	}
 }
@@ -90,7 +90,7 @@ void	parse_input_as_array(t_data *d, char **argv)
 void	parsing(t_data *d, int argc, char **argv)
 {
 	if (argc < 2)
-		exit_with_message("Not enough arguments supplied\n", 1);
+		exit_with_message(d, "Not enough arguments supplied\n", 1);
 	else if (argc == 2)
 		parse_input_as_string(d, argv[1]);
 	else
