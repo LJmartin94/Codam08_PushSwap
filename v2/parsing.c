@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   parsing.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: limartin <limartin@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/04/21 19:41:00 by limartin      #+#    #+#                 */
+/*   Updated: 2023/04/21 19:41:01 by limartin      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void parse_input_as_string(t_data *d, char *input_string)

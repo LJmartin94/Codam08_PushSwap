@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   push_swap.h                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: limartin <limartin@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
+/*   Updated: 2023/04/21 19:40:58 by limartin      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h> //exit
 #include <unistd.h> //write
 #include <limits.h> //INT_MAX && INT_MIN
