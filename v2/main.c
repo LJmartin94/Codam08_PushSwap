@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:41:04 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/22 00:53:25 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/22 01:27:56 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	printf("List length: %d\n", size_of_list(d.stack_a));
+	print_list(d.stack_a);
 	return (0);
 }
