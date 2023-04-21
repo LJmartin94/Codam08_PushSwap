@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:52 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/21 21:35:10 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/21 21:38:08 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@ int	ft_strlen(const char *str)
 	while (str[i] != '\0')
 		i++;
 	return (i);
-}
-
-/* I like separating the output from the input with a newline, 
-but I'm sure the checker will hate it*/
-void	exit_with_message(char *msg, int error)
-{
-	write(1, "\n", 1);
-	if (error)
-		write(1, msg, ft_strlen(msg));
-	exit(error);
 }
 
 /* This is like a standard atoi but if it encounters an integer overflow error 
