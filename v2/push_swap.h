@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/22 01:43:52 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/28 15:26:56 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,21 @@ void	parsing(t_data *d, int argc, char **argv);
 int		size_of_list(t_link *to_count);
 t_link	*new_node(t_data *d, int content);
 t_link	*add_to_back(t_link *head, t_link *to_add);
+t_link	*copy_list(t_data *d, t_link *to_copy);
+
+//ops
+void	pa(t_data *d);
+void	pb(t_data *d);
+void	sa(t_data *d);
+void	sb(t_data *d);
+void	ss(t_data *d);
+void	ra(t_data *d);
+void	rb(t_data *d);
+void	rr(t_data *d);
+void	rra(t_data *d);
+void	rrb(t_data *d);
+void	rrr(t_data *d);
+
 
 //exit.c
 void	exit_with_message(t_data *d, char *msg, int error);

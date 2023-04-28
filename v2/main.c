@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:41:04 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/22 01:27:56 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/28 15:37:22 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,11 @@ int	main(int argc, char **argv)
 		d.stack_a = add_to_back(d.stack_a, new_node(&d, d.input[i]));
 		i++;
 	}
-	printf("List length: %d\n", size_of_list(d.stack_a));
+	pb(&d);
+	printf("Stack a: ");
 	print_list(d.stack_a);
+	printf("Stack b: ");
+	print_list(d.stack_b);
+	printf("Stack_a len: %d, Stack_b len: %d\n", size_of_list(d.stack_a), size_of_list(d.stack_b));
 	return (0);
 }
