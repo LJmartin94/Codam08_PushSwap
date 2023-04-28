@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 21:49:29 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/22 01:13:31 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/28 13:50:12 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,19 @@ t_link	*add_to_back(t_link *head, t_link *to_add)
 	tmp->next = to_add;
 	to_add->previous = tmp;
 	return (head);
+}
+
+t_link	*copy_list(t_data *d, t_link *to_copy)
+{
+	t_link	*ret;
+	t_link	*tmp;
+
+	ret = NULL;
+	tmp = to_copy;
+	while(tmp)
+	{
+		ret = add_to_back(ret, new_node(d, tmp->content));
+		tmp = tmp->next;
+	}
+	return ret;
 }
