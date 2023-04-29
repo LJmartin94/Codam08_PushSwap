@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:41:04 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/30 00:29:05 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/30 01:21:02 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int	main(int argc, char **argv)
 	print_list(d.stack_a);
 	printf("Start Stack b: ");
 	print_list(d.stack_b);
-
-	//Do ops to test here
 
 	printf("End Stack a: ");
 	print_list(d.stack_a);

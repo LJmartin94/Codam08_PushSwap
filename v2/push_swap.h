@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/29 21:45:27 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/30 01:02:42 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,21 @@ t_link	*add_to_back(t_link *head, t_link *to_add);
 t_link	*copy_list(t_data *d, t_link *to_copy);
 
 //ops
+void 	op_px(t_link **to_stack, t_link **from_stack);
 void	pa(t_data *d);
 void	pb(t_data *d);
+
+void 	op_sx(t_link **stack);
 void	sa(t_data *d);
 void	sb(t_data *d);
 void	ss(t_data *d);
+
+void 	op_rx(t_link **stack);
 void	ra(t_data *d);
 void	rb(t_data *d);
 void	rr(t_data *d);
+
+void 	op_rrx(t_link **stack);
 void	rra(t_data *d);
 void	rrb(t_data *d);
 void	rrr(t_data *d);
