@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:41:04 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/28 17:46:21 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/29 20:34:44 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@ int	main(int argc, char **argv)
 		d.stack_a = add_to_back(d.stack_a, new_node(&d, d.input[i]));
 		i++;
 	}
-	pb(&d);
-	pb(&d);
-	pb(&d);
-	pb(&d);
 	printf("Stack a: ");
 	print_list(d.stack_a);
 	printf("Stack b: ");
