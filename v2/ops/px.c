@@ -6,40 +6,27 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/22 01:40:28 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/29 21:45:27 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/29 23:51:39 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* Pushes TO stack X (from the other stack) */
-void op_px(t_link **to, t_link **from)
+void op_px(t_link **to_stack, t_link **from_stack)
 {
 	t_link *to_move;
 
-	if (*from == NULL)
+	to_move = *from_stack; //the node to_move is the current top of 'from' stack
+	if (to_move == NULL) //there is nothing to move
 		return;
-	to_move = *from; //top of 'from' stack
-	to_move->below->above = NULL;
-	to_move->below = *to; 
-	to = to_move;
-
-
-
-
-	if (to_move->above != NULL)
-		to_move->above->below = NULL;
-	else
-		*from = NULL;
-	dest = *to;
-	if (dest == NULL)
-		*to = to_move;
-	else
-	{
-		while (dest->below)
-			dest = dest->below;
-		dest->below = to_move;
-	}	
+	*from_stack = to_move->below; //the new top of the 'from' stack should now be the node below the one we're moving.
+	if (*from_stack)
+		(*from_stack)->above = NULL; //the new top of the 'from' stack should now have nothing above it.
+	if (*to_stack)
+		(*to_stack)->above = to_move; //the old top of the 'to' stack should now have the node we're moving above it.
+	to_move->below = *to_stack; //the element we're moving should have the old top of the 'to' stack below it.
+	*to_stack = to_move; //the new top of the 'to' stack should now be the one we're moving.
 	return;
 }
 
