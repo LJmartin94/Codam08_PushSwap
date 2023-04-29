@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/29 21:41:11 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/29 21:45:27 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 typedef struct s_link
 {
 	int				content;
-	struct s_link	*above; //previous
-	struct s_link	*below; //next
+	struct s_link	*above; //above
+	struct s_link	*below; //below
 }	t_link;
 
 //data struct -> anything that is malloc'd and needs to be freed goes in here.

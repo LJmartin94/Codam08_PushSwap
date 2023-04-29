@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/22 01:40:28 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/28 17:45:50 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/29 21:45:27 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@
 void op_px(t_link **to, t_link **from)
 {
 	t_link *to_move;
-	t_link *dest;
 
 	if (*from == NULL)
 		return;
-	to_move = *from;
-	while (to_move->next)
-		to_move = to_move->next;
-	if (to_move->previous != NULL)
-		to_move->previous->next = NULL;
+	to_move = *from; //top of 'from' stack
+	to_move->below->above = NULL;
+	to_move->below = *to; 
+	to = to_move;
+
+
+
+
+	if (to_move->above != NULL)
+		to_move->above->below = NULL;
 	else
 		*from = NULL;
 	dest = *to;
@@ -32,9 +36,9 @@ void op_px(t_link **to, t_link **from)
 		*to = to_move;
 	else
 	{
-		while (dest->next)
-			dest = dest->next;
-		dest->next = to_move;
+		while (dest->below)
+			dest = dest->below;
+		dest->below = to_move;
 	}	
 	return;
 }
