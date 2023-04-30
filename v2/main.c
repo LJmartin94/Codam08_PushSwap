@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:41:04 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/30 01:42:26 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/30 15:43:35 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 void	initialise_data(t_data *d)
 {
 	d->input = NULL;
+	d->sorted_input = NULL;
 	d->num_of_args = 0;
 	d->stack_a = NULL;
 	d->stack_b = NULL;
@@ -30,6 +31,7 @@ int	main(int argc, char **argv)
 
 	initialise_data(&d);
 	parsing(&d, argc, argv);
+	translate_input(&d);
 	i = 0;
 	while (i < d.num_of_args)
 	{
@@ -40,11 +42,11 @@ int	main(int argc, char **argv)
 	print_list(d.stack_a);
 	printf("Start Stack b: ");
 	print_list(d.stack_b);
-
 	printf("End Stack a: ");
 	print_list(d.stack_a);
 	printf("End Stack b: ");
 	print_list(d.stack_b);
-	printf("Stack_a len: %d, Stack_b len: %d\n", size_of_list(d.stack_a), size_of_list(d.stack_b));
+	printf("Stack_a len: %d, Stack_b len: %d\n", \
+	size_of_list(d.stack_a), size_of_list(d.stack_b));
 	return (0);
 }

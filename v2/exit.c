@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 21:38:00 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/29 21:45:27 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/30 15:43:02 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	free_list(t_link *list)
 {
-	t_link *below_node;
-	
-	while(list != NULL)
+	t_link	*below_node;
+
+	while (list != NULL)
 	{
 		below_node = list->below;
 		list->below = NULL;
@@ -24,7 +24,7 @@ void	free_list(t_link *list)
 		free(list);
 		list = below_node;
 	}
-	return;
+	return ;
 }
 
 void	free_all(t_data *d)
