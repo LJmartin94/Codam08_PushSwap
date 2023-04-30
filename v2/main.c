@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:41:04 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/30 15:43:35 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/30 16:14:49 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	initialise_data(t_data *d)
 	d->num_of_args = 0;
 	d->stack_a = NULL;
 	d->stack_b = NULL;
-	d->solution_a = NULL;
+	d->solutions = NULL;
 	return ;
 }
 
@@ -42,6 +42,7 @@ int	main(int argc, char **argv)
 	print_list(d.stack_a);
 	printf("Start Stack b: ");
 	print_list(d.stack_b);
+	try_solutions(&d);
 	printf("End Stack a: ");
 	print_list(d.stack_a);
 	printf("End Stack b: ");

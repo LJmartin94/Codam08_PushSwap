@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 21:38:00 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/30 15:43:02 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/30 16:28:17 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ void	free_list(t_link *list)
 
 void	free_all(t_data *d)
 {
-	if (d->input != NULL)
-		free(d->input);
+	free(d->input);
 	d->input = NULL;
+	free(d->sorted_input);
+	d->sorted_input = NULL;
 	free_list(d->stack_a);
 	free_list(d->stack_b);
-	free_list(d->solution_a);
+	// free_list(d->solutions); //no longer works this way
 }
 
 /* I like separating the output from the input with a newline, 

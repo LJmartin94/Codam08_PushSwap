@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/30 15:15:11 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/30 15:51:43 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/30 15:53:07 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	sort_input(t_data *d)
 		else
 			i++;
 	}
+	free(d->sorted_input);
+	d->sorted_input = NULL;
 }
 
 void	copy_input(t_data *d)

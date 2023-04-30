@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/30 15:45:16 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/30 16:24:30 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@
 # include <stdlib.h> //exit
 # include <unistd.h> //write
 # include <limits.h> //INT_MAX && INT_MIN
+
+enum Solution
+{
+	DUMB_SORT,
+	SOLUTIONS_TOTAL,
+};
+
+enum Operation
+{
+	ERROR,
+	OPS_TOTAL,
+};
 
 // The type of struct we use to represent our stack_a and stack_b
 // AND
@@ -35,7 +47,7 @@ typedef struct s_data
 	int		num_of_args;
 	t_link	*stack_a;
 	t_link	*stack_b;
-	t_link	*solution_a;
+	t_link	**solutions;
 }	t_data;
 
 //utils.c
@@ -53,6 +65,12 @@ int		size_of_list(t_link *to_count);
 t_link	*new_node(t_data *d, int content);
 t_link	*add_to_back(t_link *head, t_link *to_add);
 t_link	*copy_list(t_data *d, t_link *to_copy);
+
+//try_solutions.c
+void	try_solutions(t_data *d);
+
+//algos
+t_link *dumb_sort(t_data *d);
 
 //ops
 void	op_px(t_link **to_stack, t_link **from_stack);
