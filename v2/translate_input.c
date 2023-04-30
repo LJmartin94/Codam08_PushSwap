@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/30 15:15:11 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/30 15:48:37 by limartin      ########   odam.nl         */
+/*   Updated: 2023/04/30 15:51:43 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ void	copy_input(t_data *d)
 
 /* Translate the input ints internal representation to a list of indexes, 
 where the lowest number in the input will become 0, 
-the second lowest will be 1, etc */
+the second lowest will be 1, etc 
+This way we always know whether two inputs are supposed to be neighbours
+or not.*/
 void	translate_input(t_data *d)
 {
 	int	i;
