@@ -6,11 +6,36 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:52 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/21 21:46:24 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/02 18:22:18 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*returns 0 if stacks are unsorted, 1 if both stacks are sorted but there is 
+still something on stack B, and 2 if everything is fully sorted on A*/
+int	stacks_sorted(t_data *d)
+{
+	t_link *to_check;
+
+	to_check = d->stack_a;
+	while(to_check && to_check->below)
+	{
+		if(to_check->content > to_check->below->content)
+			return 0;
+		to_check = to_check->below;
+	}
+	to_check = d->stack_b;
+	while(to_check && to_check->below)
+	{
+		if(to_check->content < to_check->below->content)
+			return 0;
+		to_check = to_check->below;
+	}
+	if (size_of_list(d->stack_b))
+		return 1;
+	return 2;
+}
 
 int	ft_strlen(const char *str)
 {
