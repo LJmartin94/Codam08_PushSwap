@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/30 16:12:07 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 20:47:32 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 21:04:28 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	set_or_reset_stacks(t_data *d)
 {
-	int i;
+	int	i;
 
 	if (d->stack_a != NULL)
 	{
@@ -36,8 +36,8 @@ void	set_or_reset_stacks(t_data *d)
 
 void	try_solutions(t_data *d)
 {
-	int shortest;
-	int index;
+	int	shortest;
+	int	index;
 
 	d->solutions = (t_link **)malloc(sizeof(t_link *) * SOLUTIONS_TOTAL);
 	d->solutions[DUMB_SORT] = dumb_sort(d);

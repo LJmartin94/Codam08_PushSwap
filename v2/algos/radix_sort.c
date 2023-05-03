@@ -6,17 +6,17 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/03 19:38:47 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 20:50:44 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 21:03:59 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_link *do_radix(t_data *d, t_link *solution)
+t_link	*do_radix(t_data *d, t_link *solution)
 {
 	int	bits_to_shift;
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	bits_to_shift = 0;
 	while (((d->num_of_args - 1) >> bits_to_shift) != 0)
@@ -27,7 +27,7 @@ t_link *do_radix(t_data *d, t_link *solution)
 		j = 0;
 		while (j < d->num_of_args)
 		{
-			if(((d->stack_a->content >> i)&1) == 1)
+			if (((d->stack_a->content >> i) & 1) == 1)
 				solution = apply_op(d, ra, solution);
 			else
 				solution = apply_op(d, pb, solution);

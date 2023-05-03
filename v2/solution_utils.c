@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/03 14:45:11 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 16:35:44 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 21:07:57 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,25 @@ t_link	*apply_op(	t_data *d, \
 	return (solution);
 }
 
+void	write_rotate(t_link *solution)
+{
+	if (solution->content == RA)
+		write(1, "ra\n", 3);
+	if (solution->content == RB)
+		write(1, "rb\n", 3);
+	if (solution->content == RR)
+		write(1, "rr\n", 3);
+	if (solution->content == RRA)
+		write(1, "rra\n", 4);
+	if (solution->content == RRB)
+		write(1, "rrb\n", 4);
+	if (solution->content == RRR)
+		write(1, "rrr\n", 4);
+}
+
 void	write_solution(t_link *solution)
 {
-	while(solution)
+	while (solution)
 	{
 		if (solution->content == PA)
 			write(1, "pa\n", 3);
@@ -62,18 +78,10 @@ void	write_solution(t_link *solution)
 			write(1, "sb\n", 3);
 		if (solution->content == SS)
 			write(1, "ss\n", 3);
-		if (solution->content == RA)
-			write(1, "ra\n", 3);
-		if (solution->content == RB)
-			write(1, "rb\n", 3);
-		if (solution->content == RR)
-			write(1, "rr\n", 3);
-		if (solution->content == RRA)
-			write(1, "rra\n", 4);
-		if (solution->content == RRB)
-			write(1, "rrb\n", 4);
-		if (solution->content == RRR)
-			write(1, "rrr\n", 4);
+		if (solution-> content == RA || solution-> content == RB || \
+			solution->content == RR || solution->content == RRR || \
+			solution->content == RRA || solution->content == RRB)
+			write_rotate(solution);
 		solution = solution->below;
 	}
 }
