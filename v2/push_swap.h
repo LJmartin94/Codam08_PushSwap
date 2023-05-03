@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 16:42:38 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 20:48:38 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 enum e_solution
 {
 	DUMB_SORT,
+	RADIX_SORT,
 	SOLUTIONS_TOTAL,
 };
 
@@ -86,9 +87,11 @@ t_link				*copy_list(t_data *d, t_link *to_copy);
 
 //try_solutions.c
 void				try_solutions(t_data *d);
+void				set_or_reset_stacks(t_data *d);
 
 //algos
 t_link				*dumb_sort(t_data *d);
+t_link				*radix_sort(t_data *d);
 
 //ops
 int					op_px(t_link **to_stack, t_link **from_stack);
@@ -111,6 +114,7 @@ enum e_operation	rrb(t_data *d);
 enum e_operation	rrr(t_data *d);
 
 //exit.c
+void				free_list(t_link *list);
 void				exit_with_message(t_data *d, char *msg, int error);
 
 //debug.c -> functions and includes to be removed before handing in.

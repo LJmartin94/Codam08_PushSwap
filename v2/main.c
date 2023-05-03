@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:41:04 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/02 18:40:58 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 20:55:35 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,7 @@ int	main(int argc, char **argv)
 	initialise_data(&d);
 	parsing(&d, argc, argv);
 	translate_input(&d);
-	i = 0;
-	while (i < d.num_of_args)
-	{
-		d.stack_a = add_to_back(d.stack_a, new_node(&d, d.input[i]));
-		i++;
-	}
+	set_or_reset_stacks(&d);
 	printf("Start Stack a: ");
 	print_list(d.stack_a);
 	printf("Start Stack b: ");
