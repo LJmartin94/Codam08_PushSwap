@@ -6,20 +6,20 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/22 01:40:10 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/30 00:22:55 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 16:25:21 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void op_sx(t_link **stack)
+int op_sx(t_link **stack)
 {
 	t_link *move_down; //starts on top, ends second
 	t_link *move_up; //starts second, ends on top
 	t_link *foundation; //stays in the same place (third), but gets a different 'upstairs' neighbour.
 
 	if (size_of_list(*stack) < 2) //not enough nodes on stack to swap
-		return;
+		return (0);
 	move_down = *stack; //the node to move down is the one that starts at the top
 	move_up = (*stack)->below; //the node to move up is the one that starts underneath the top
 	foundation = move_up->below; //the foundation is whatever is underneath the node that needs to be moved up
@@ -32,23 +32,26 @@ void op_sx(t_link **stack)
 	move_up->below = move_down; //the node that gets moved up should have the node that gets moved down as its downstairs neigbour
 	move_up->above = NULL; //the node that gets moved up should have nothing at all as its upstairs neighbour
 	*stack = move_up; //Finally, we need to make sure our data struct knows that this stack now starts with the node that was moved up.
+	return (1);
 }
 
-void sa(t_data *d)
+enum e_operation	sa(t_data *d)
 {
-	op_sx(&d->stack_a);
-	return;
+	return (op_sx(&d->stack_a) * SA);
 }
 
-void sb(t_data *d)
+enum e_operation	sb(t_data *d)
 {
-	op_sx(&d->stack_b);
-	return;
+	return (op_sx(&d->stack_b) * SB);
 }
 
-void ss(t_data *d)
+enum e_operation	ss(t_data *d)
 {
-	sa(d);
-	sb(d);
-	return;
+	int res;
+	
+	res = sa(d) + sb(d);
+	if (res == SA + SB)
+		return(SS);
+	else
+		return(res);
 }

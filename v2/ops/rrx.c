@@ -6,14 +6,14 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/22 01:40:13 by limartin      #+#    #+#                 */
-/*   Updated: 2023/04/30 01:42:03 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 16:09:17 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //moves 'to_move' from its starting position below 'new_tail' to its final position above 'old_head'
-void op_rrx(t_link **stack)
+int op_rrx(t_link **stack)
 {
 	t_link *old_head; //the node that is at the top of the stack, until the moving node moves above it
 	t_link *new_tail; //the node that is above the moving node, which becomes the new bottom of the stack
@@ -33,24 +33,26 @@ void op_rrx(t_link **stack)
 	to_move->below = old_head; //the node we moved now has what used to be the top of the stack as a downstairs neighbour.
 	to_move->above = NULL; //the node we moved now has nothing left above it.
 	*stack = to_move; //Finally, we need to make sure our data struct knows that this stack now starts with the node that we moved from bottom to top
-	return;
+	return (1);
 }
 
-void rra(t_data *d)
+enum e_operation	rra(t_data *d)
 {
-	op_rrx(&d->stack_a);
-	return;
+	return (op_rrx(&d->stack_a) * RRA);
 }
 
-void rrb(t_data *d)
+enum e_operation	rrb(t_data *d)
 {
-	op_rrx(&d->stack_b);
-	return;
+	return (op_rrx(&d->stack_b) * RRB);
 }
 
-void rrr(t_data *d)
+enum e_operation	rrr(t_data *d)
 {
-	rra(d);
-	rrb(d);
-	return;
+	int res;
+	
+	res = rra(d) + rrb(d);
+	if (res == RRA + RRB)
+		return(RRR);
+	else
+		return(res);
 }
