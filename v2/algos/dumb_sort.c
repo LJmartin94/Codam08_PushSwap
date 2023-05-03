@@ -6,13 +6,13 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/30 16:23:53 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 14:39:12 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 15:18:06 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	target_pb(t_data *d)
+t_link	*target_pb(t_data *d, t_link *solution)
 {
 	t_link	*tmp;
 	int		target;
@@ -29,26 +29,27 @@ void	target_pb(t_data *d)
 	if (d->stack_a && d->stack_a->content != target)
 	{
 		if (pos <= (size_of_list(d->stack_a) / 2))
-			ra(d);
+			return (apply_op(d, &ra, solution));
 		else
-			rra(d);
+			return (apply_op(d, &rra, solution));
 	}
 	else
-		pb(d);
+		return (apply_op(d, &pb, solution));
 }
 
 t_link	*dumb_sort(t_data *d)
 {
 	t_link	*solution;
 
+	solution = NULL;
 	while (stacks_sorted(d) != 2)
 	{
 		if (stacks_sorted(d) == 0)
 		{
-			target_pb(d);
+			solution = target_pb(d, solution);
 		}
 		else
-			pa(d);
+			solution = apply_op(d, &pa, solution);
 	}
 	return (solution);
 }
