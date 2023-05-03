@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/30 16:23:53 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 15:18:06 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 19:42:56 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ t_link	*dumb_sort(t_data *d)
 	t_link	*solution;
 
 	solution = NULL;
+	set_or_reset_stacks(d);
 	while (stacks_sorted(d) != 2)
 	{
 		if (stacks_sorted(d) == 0)
