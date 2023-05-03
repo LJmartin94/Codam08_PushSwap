@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/02 18:28:24 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 14:32:04 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 # include <unistd.h> //write
 # include <limits.h> //INT_MAX && INT_MIN
 
-enum Solution
+enum e_solution
 {
 	DUMB_SORT,
 	SOLUTIONS_TOTAL,
 };
 
-enum Operation
+enum e_operation
 {
 	ERROR,
 	OPS_TOTAL,
@@ -71,7 +71,7 @@ t_link	*copy_list(t_data *d, t_link *to_copy);
 void	try_solutions(t_data *d);
 
 //algos
-t_link *dumb_sort(t_data *d);
+t_link	*dumb_sort(t_data *d);
 
 //ops
 void	op_px(t_link **to_stack, t_link **from_stack);
