@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/30 16:12:07 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 21:04:28 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 23:54:36 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,18 @@ void	try_solutions(t_data *d)
 
 	d->solutions = (t_link **)malloc(sizeof(t_link *) * SOLUTIONS_TOTAL);
 	d->solutions[DUMB_SORT] = dumb_sort(d);
-	printf("Dumb sort ops: %d\n", size_of_list(d->solutions[DUMB_SORT]));
 	d->solutions[RADIX_SORT] = radix_sort(d);
-	printf("Radix sort ops: %d\n", size_of_list(d->solutions[RADIX_SORT]));
 	index = 0;
 	shortest = 0;
 	while (index < SOLUTIONS_TOTAL)
 	{
+		optimise_solution(&d->solutions[index]);
 		if (size_of_list(d->solutions[index]) < \
 			size_of_list(d->solutions[shortest]))
 			shortest = index;
 		index++;
 	}
+	printf("Dumb sort ops: %d\n", size_of_list(d->solutions[DUMB_SORT]));
+	printf("Radix sort ops: %d\n", size_of_list(d->solutions[RADIX_SORT]));
 	write_solution(d->solutions[shortest]);
 }

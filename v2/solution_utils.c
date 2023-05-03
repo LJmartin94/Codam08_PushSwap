@@ -6,11 +6,59 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/03 14:45:11 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 21:07:57 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 23:42:48 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_link *delete_two_nodes(t_link *head, t_link *first)
+{
+	t_link	*second;
+	t_link	*third;
+
+	second = first->below;
+	third = second->below;
+	third->above = first->above;
+	if (first->above == NULL)
+	{
+		free(first);
+		free(second);
+		return(third);
+	}
+	third->above->below = third;
+	return (head);
+}
+
+void	optimise_solution(t_link **solution)
+{
+	t_link	*head;
+	t_link	*to_check;
+
+	head = *solution;
+	to_check = head;
+	while(to_check->below)
+	{
+		if((to_check->content == PB && to_check->below->content == PA) || \
+			(to_check->content == PA && to_check->below->content == PB) || \
+			(to_check->content == SA && to_check->below->content == SA) || \
+			(to_check->content == SB && to_check->below->content == SB) || \
+			(to_check->content == SS && to_check->below->content == SS) || \
+			(to_check->content == RA && to_check->below->content == RRA) || \
+			(to_check->content == RB && to_check->below->content == RRB) || \
+			(to_check->content == RR && to_check->below->content == RRR) || \
+			(to_check->content == RRA && to_check->below->content == RA) || \
+			(to_check->content == RRB && to_check->below->content == RB) || \
+			(to_check->content == RRR && to_check->below->content == RR))
+			{
+				head = delete_two_nodes(head, to_check);
+				to_check = head;
+			}
+		else
+			to_check = to_check->below;
+	}
+	*solution = head;
+}
 
 /*returns 0 if stacks are unsorted, 1 if both stacks are sorted but there is 
 still something on stack B, and 2 if everything is fully sorted on A*/

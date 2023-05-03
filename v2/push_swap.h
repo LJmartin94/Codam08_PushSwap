@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 20:48:38 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 23:09:16 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ t_link				*apply_op(t_data *d, \
 					enum e_operation (*op)(t_data *d), \
 					t_link *solution);
 void				write_solution(t_link *solution);
+void				optimise_solution(t_link **solution);
 
 //parsing.c
 void				parsing(t_data *d, int argc, char **argv);
