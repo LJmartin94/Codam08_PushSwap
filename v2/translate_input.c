@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/30 15:15:11 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/02 19:41:31 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/03 16:22:29 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	sort_input(t_data *d)
 			d->sorted_input[i + 1] = swap;
 			i = 0;
 		}
+		else if (d->sorted_input[i] == d->sorted_input[i + 1])
+			exit_with_message(d, "Contains duplicates", 1);
 		else
 			i++;
 	}
