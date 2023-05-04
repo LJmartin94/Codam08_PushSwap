@@ -6,13 +6,13 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/03 14:45:11 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 23:42:48 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/04 13:41:29 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_link *delete_two_nodes(t_link *head, t_link *first)
+t_link	*delete_two_nodes(t_link *head, t_link *first)
 {
 	t_link	*second;
 	t_link	*third;
@@ -24,7 +24,7 @@ t_link *delete_two_nodes(t_link *head, t_link *first)
 	{
 		free(first);
 		free(second);
-		return(third);
+		return (third);
 	}
 	third->above->below = third;
 	return (head);
@@ -32,14 +32,12 @@ t_link *delete_two_nodes(t_link *head, t_link *first)
 
 void	optimise_solution(t_link **solution)
 {
-	t_link	*head;
 	t_link	*to_check;
 
-	head = *solution;
-	to_check = head;
-	while(to_check->below)
+	to_check = *solution;
+	while (to_check->below)
 	{
-		if((to_check->content == PB && to_check->below->content == PA) || \
+		if ((to_check->content == PB && to_check->below->content == PA) || \
 			(to_check->content == PA && to_check->below->content == PB) || \
 			(to_check->content == SA && to_check->below->content == SA) || \
 			(to_check->content == SB && to_check->below->content == SB) || \
@@ -50,14 +48,13 @@ void	optimise_solution(t_link **solution)
 			(to_check->content == RRA && to_check->below->content == RA) || \
 			(to_check->content == RRB && to_check->below->content == RB) || \
 			(to_check->content == RRR && to_check->below->content == RR))
-			{
-				head = delete_two_nodes(head, to_check);
-				to_check = head;
-			}
+		{
+			*solution = delete_two_nodes(*solution, to_check);
+			to_check = *solution;
+		}
 		else
 			to_check = to_check->below;
 	}
-	*solution = head;
 }
 
 /*returns 0 if stacks are unsorted, 1 if both stacks are sorted but there is 
