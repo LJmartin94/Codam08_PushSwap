@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/30 16:12:07 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 23:54:36 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/04 14:28:08 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	try_solutions(t_data *d)
 	shortest = 0;
 	while (index < SOLUTIONS_TOTAL)
 	{
-		optimise_solution(&d->solutions[index]);
+		if (size_of_list(d->solutions[index]))
+			optimise_solution(&d->solutions[index]);
 		if (size_of_list(d->solutions[index]) < \
 			size_of_list(d->solutions[shortest]))
 			shortest = index;
