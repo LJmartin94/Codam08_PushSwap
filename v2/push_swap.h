@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 23:09:16 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/04 17:10:26 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ enum e_solution
 {
 	DUMB_SORT,
 	RADIX_SORT,
+	BUBBLE_SORT,
 	SOLUTIONS_TOTAL,
 };
 
@@ -93,6 +94,7 @@ void				set_or_reset_stacks(t_data *d);
 //algos
 t_link				*dumb_sort(t_data *d);
 t_link				*radix_sort(t_data *d);
+t_link				*bubble_sort(t_data *d);
 
 //ops
 int					op_px(t_link **to_stack, t_link **from_stack);
