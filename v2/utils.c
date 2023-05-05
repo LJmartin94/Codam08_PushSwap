@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:52 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/03 14:45:21 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/05 00:13:45 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	ft_strlen(const char *str)
 
 /* This is like a standard atoi but if it encounters an integer overflow error 
 it exits the program with an error message. */
+
 int	ft_modified_atoi(t_data *d, char *str)
 {
 	int			i;
