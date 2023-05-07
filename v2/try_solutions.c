@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/30 16:12:07 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/04 17:51:08 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/07 16:10:41 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,13 @@ void	try_solutions(t_data *d)
 	d->solutions[DUMB_SORT] = dumb_sort(d);
 	d->solutions[RADIX_SORT] = radix_sort(d);
 	d->solutions[BUBBLE_SORT] = bubble_sort(d);
+	d->solutions[SIM_SORT] = sim_sort(d);
 	index = 0;
 	shortest = 0;
 	while (index < SOLUTIONS_TOTAL)
 	{
-		if (size_of_list(d->solutions[index]))
-			optimise_solution(&d->solutions[index]);
+		// if (size_of_list(d->solutions[index]))
+			// optimise_solution(&d->solutions[index]);
 		if (size_of_list(d->solutions[index]) < \
 			size_of_list(d->solutions[shortest]))
 			shortest = index;
@@ -57,5 +58,6 @@ void	try_solutions(t_data *d)
 	printf("Dumb sort ops: %d\n", size_of_list(d->solutions[DUMB_SORT]));
 	printf("Radix sort ops: %d\n", size_of_list(d->solutions[RADIX_SORT]));
 	printf("Bubble sort ops: %d\n", size_of_list(d->solutions[BUBBLE_SORT]));
+	printf("Sim sort ops: %d\n", size_of_list(d->solutions[SIM_SORT]));
 	write_solution(d->solutions[shortest]);
 }

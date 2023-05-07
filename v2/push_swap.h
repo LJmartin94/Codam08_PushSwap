@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 19:40:57 by limartin      #+#    #+#                 */
-/*   Updated: 2023/05/04 17:10:26 by limartin      ########   odam.nl         */
+/*   Updated: 2023/05/07 16:10:54 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ enum e_solution
 	DUMB_SORT,
 	RADIX_SORT,
 	BUBBLE_SORT,
+	SIM_SORT,
 	SOLUTIONS_TOTAL,
 };
 
@@ -41,6 +42,7 @@ enum e_operation
 	RRR,
 	OPS_TOTAL,
 };
+
 
 // The type of struct we use to represent our stack_a and stack_b
 // AND
@@ -95,8 +97,11 @@ void				set_or_reset_stacks(t_data *d);
 t_link				*dumb_sort(t_data *d);
 t_link				*radix_sort(t_data *d);
 t_link				*bubble_sort(t_data *d);
+t_link				*sim_sort(t_data *d);
 
 //ops
+typedef enum e_operation (*t_op_func)(t_data *d);
+
 int					op_px(t_link **to_stack, t_link **from_stack);
 enum e_operation	pa(t_data *d);
 enum e_operation	pb(t_data *d);
